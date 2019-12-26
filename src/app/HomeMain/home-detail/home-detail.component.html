@@ -1,0 +1,33 @@
+<div class="card" *ngIf="home">
+  <div class='card-header'>
+    {{pageTitle+": "+home.name}}
+  </div>
+  <div class="card-body">
+    <div class='row'>
+      <div class='col-md-4'>
+        <img class='center-block img-responsive'
+             [style.width.px]='200'
+             [src]='netImage'
+             [title]='home.name'>
+      </div>
+      <div class="col-md-8">
+        <h5 class="card-title">{{home.name}}</h5>
+        <p class="card-text">{{home.description}}</p>
+<!--        <ul class="list-group" *ngIf="home">-->
+<!--          <li class="list-group-item"><b>Part#:</b> {{home.name | lowercase }}</li>-->
+<!--          <li class="list-group-item"><b>Released:</b> {{home.name}}</li>-->
+<!--          <li class="list-group-item"><b>Cost:</b> {{home.name|currency:'USD':'symbol'}}</li>-->
+<!--          <li class="list-group-item"><b>Rating:</b>&nbsp;<game-thumb-->
+<!--            [rating]='home.name'></game-thumb>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <app-home-status [status] =home.status></app-home-status>-->
+      </div>
+    </div>
+  </div>
+  <div class='card-footer'>
+    <button class='btn btn-outline-secondary' (click)='onBack()'>
+      <i class='fa fa-chevron-left'></i> Back
+    </button>
+  </div>
+</div>

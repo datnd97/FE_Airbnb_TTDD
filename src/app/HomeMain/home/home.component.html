@@ -1,0 +1,42 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row mt-4">
+      <div *ngFor="let home of listHome | paginate:{itemsPerPage: count, currentPage: p}"   class="col-lg-3 col-sm-6 mb-4">
+<!--            <div *ngIf="home.status.id == '1'">-->
+        <div class="card shadow border-0 h-100 pointer" >
+          <a><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a >{{home.name}}</a>
+            </h4>
+            <p class="card-text">
+              {{home.description}}
+            </p>
+
+          </div>
+            <div class="btn-group">
+              <button routerLink="/homes/{{home.id}}" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            </div>
+<!--            <small class="text-muted">9 mins</small>-->
+        </div>
+
+        <!--    </div>-->
+
+      </div>
+      <div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+<div class="text-center">
+  <pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+</div>
+
+<!--<app-home-detail [home]="selectedHome"></app-home-detail>-->
+
