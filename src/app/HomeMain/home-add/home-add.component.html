@@ -34,7 +34,7 @@
     <div >
       <label for="formGroupExampleInput8" >Type Room:</label>
     </div>
-    <select formControlName="typeHomeId" class="custom-select " id="formGroupExampleInput8">
+    <select formControlName="typeRoomId" class="custom-select " id="formGroupExampleInput8">
       <option value="" selected disabled hidden>Please select Type Room</option>
       <option *ngFor="let type of typeRoomList" value="{{type.id}}">{{type.name}}</option>
     </select>
