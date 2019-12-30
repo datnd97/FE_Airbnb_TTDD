@@ -12,7 +12,7 @@ import {Status} from '../../models/Status';
 export class HomeDetailComponent implements OnInit {
   home: Home;
   pageTitle = 'Home Detail';
-  status: Status;
+  selectStatus: boolean;
   netImage: any = '../assets/img/house.jpg';
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -33,4 +33,6 @@ export class HomeDetailComponent implements OnInit {
   onBack() {
     this.router.navigate(['/homes']);
   }
+
+
 }

@@ -13,15 +13,14 @@
       <div class="col-md-8">
         <h5 class="card-title">{{home.name}}</h5>
         <p class="card-text">{{home.description}}</p>
-<!--        <ul class="list-group" *ngIf="home">-->
-<!--          <li class="list-group-item"><b>Part#:</b> {{home.name | lowercase }}</li>-->
-<!--          <li class="list-group-item"><b>Released:</b> {{home.name}}</li>-->
-<!--          <li class="list-group-item"><b>Cost:</b> {{home.name|currency:'USD':'symbol'}}</li>-->
-<!--          <li class="list-group-item"><b>Rating:</b>&nbsp;<game-thumb-->
-<!--            [rating]='home.name'></game-thumb>-->
+        <ul class="list-group" *ngIf="home">
+          <li class="list-group-item"><b>Type-Home#:</b> {{home.typeHome.name | lowercase }}</li>
+          <li class="list-group-item"><b>Type-Room:</b> {{home.typeRoom.name}}</li>
+          <li class="list-group-item"><b>Price:</b> {{home.price|currency:'USD':'symbol'}}</li>
+<!--          <li class="list-group-item"><b>Status:</b>&nbsp;-->
+<!--              <app-home-status [status] = "selectStatus" ></app-home-status>-->
 <!--          </li>-->
-<!--        </ul>-->
-<!--        <app-home-status [status] =home.status></app-home-status>-->
+        </ul>
       </div>
     </div>
   </div>

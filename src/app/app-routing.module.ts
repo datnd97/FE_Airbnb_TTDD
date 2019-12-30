@@ -18,6 +18,12 @@ const routes: Routes = [
   {
     path: 'create',
     component: HomeAddComponent
+  },
+  {
+    path: '', redirectTo: 'homes', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: 'homes', pathMatch: 'full'
   }
 
 ];

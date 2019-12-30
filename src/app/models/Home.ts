@@ -4,13 +4,13 @@ import {TypeRoom} from './TypeRoom';
 
 export class Home {
   id?: number;
-  name: string;
-  address: string;
-  bedroom: number;
-  bathroom: number;
-  price: number;
+  name?: string;
+  address?: string;
+  bedroom?: number;
+  bathroom?: number;
+  price?: number;
   typeHome?: TypeHome;
   typeRoom?: TypeRoom;
   description: string;
-  // status?: Status;
+  status?: boolean;
 }

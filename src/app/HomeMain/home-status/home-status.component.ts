@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Status} from '../../models/Status';
+import {StatusService} from '../../service/status.service';
 
 @Component({
   selector: 'app-home-status',
@@ -7,15 +8,12 @@ import {Status} from '../../models/Status';
   styleUrls: ['./home-status.component.css']
 })
 export class HomeStatusComponent implements OnInit {
-  @Input() status = Status;
 
 
-  constructor() { }
+  constructor(private statusService: StatusService) { }
 
   ngOnInit() {
   }
 
-  addStatus() {
-    console.log('thanh cong');
-  }
+
 }

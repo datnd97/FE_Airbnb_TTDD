@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HomeService} from '../../service/home.service';
 import {TypeHome} from '../../models/TypeHome';
 import {TypeHomeService} from '../../service/type-home.service';
 import {Home} from '../../models/Home';
 import {TypeRoom} from '../../models/TypeRoom';
 import {TypeRoomService} from '../../service/type-room.service';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-home-add',
   templateUrl: './home-add.component.html',
@@ -15,22 +16,26 @@ export class HomeAddComponent implements OnInit {
 
   constructor(private homeService: HomeService,
               private typeHomeService: TypeHomeService,
-              private typeRoomService: TypeRoomService) { }
+              private typeRoomService: TypeRoomService,
+              private formBuilder: FormBuilder,
+              private router: Router) { }
 
   typeHomeList: TypeHome[];
   typeRoomList: TypeRoom[];
-  formHome = new FormGroup({
-    name: new FormControl(''),
-    address: new FormControl(''),
-    bedroom: new FormControl(''),
-    bathroom: new FormControl(''),
-    price: new FormControl(''),
-    typeHomeId: new FormControl(''),
-    typeRoomId: new FormControl(''),
-    description: new FormControl(''),
-
-  });
+  formHome: FormGroup;
+  loading =  false;
+  submitted = false;
   ngOnInit() {
+    this.formHome = this.formBuilder.group({
+      name: ['', Validators.required],
+      address: ['', Validators.required],
+      bedroom: ['', Validators.required],
+      bathroom: ['', Validators.required],
+      price: ['', Validators.required],
+      typeHome: ['', Validators.required],
+      typeRoom: ['', Validators.required],
+      description: ['', Validators.required]
+    });
     this.typeHomeService.getListTypeHome().subscribe(
       result =>
         this.typeHomeList = result,
@@ -41,26 +46,55 @@ export class HomeAddComponent implements OnInit {
         error => console.log('Khong nhan duoc')
     );
   }
+  get f() {
+    return this.formHome.controls;
+  }
+  get typeHome() {
+    return this.formHome.get('typeHome');
+  }
+  get typeRoom() {
+    return this.formHome.get('typeRoom');
+  }
   onSubmit() {
-    const {name, address, bedroom, bathroom, price, typeHomeId, typeRoomId, description} = this.formHome.value;
+    this.submitted = true;
+    if (this.formHome.invalid) {
+      return;
+    } else {
+      alert(JSON.stringify(this.formHome.value));
+    }
+    this.loading = true;
+    const {name, address, bathroom, bedroom, typeHome, typeRoom, price, description} = this.formHome.value;
     const home: Home = {
       name,
       address,
-      bedroom,
       bathroom,
-      price,
+      bedroom,
       typeHome : {
-        id: typeHomeId
+        id: typeHome
       },
       typeRoom : {
-        id: typeRoomId
+        id: typeRoom
       },
+      price,
       description,
     };
     this.homeService.addHome(home).subscribe(
-      result => console.log('Thanh cong'),
+      result => {
+        alert('Thanh cong');
+        this.router.navigate(['/homes']);
+      },
       error => console.log('That bai')
     );
   }
 
+  changeHomeId(e) {
+    this.typeHome.patchValue(e.target.value, {
+      onlySelf: true
+    });
+  }
+  changeRoomId(e) {
+    this.typeRoom.patchValue(e.target.value, {
+      onlySelf: true
+    });
+  }
 }
