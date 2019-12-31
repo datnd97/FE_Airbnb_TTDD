@@ -20,7 +20,9 @@
           <li class="list-group-item"><b>Bathroom:</b> {{home.bathroom}}</li>
           <li class="list-group-item"><b>Bedroom:</b> {{home.bedroom}}</li>
           <li class="list-group-item"><b>Address:</b> {{home.address}}</li>
-          <!--          <li class="list-group-item"><b>Status:</b>&nbsp;-->
+                    <li *ngIf="home.status" class="list-group-item">
+                      <b>Status:</b> Còn Nhà &nbsp;
+                    </li>
 <!--              <app-home-status [status] = "selectStatus" ></app-home-status>-->
 <!--          </li>-->
         </ul>
@@ -28,6 +30,8 @@
     </div>
     <div class="panel-footer">
       <button class="btn btn-primary"(click)="editHome()">Edit</button>
+      <button class="btn btn-danger"(click) = "deleteHome()">Delete</button>
+      <button class="btn btn-default" (click)="updateStatus()">Update Status</button>
     </div>
 <!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>

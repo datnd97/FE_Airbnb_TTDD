@@ -11,12 +11,18 @@ import {query} from '@angular/animations';
   styleUrls: ['./home-detail.component.css']
 })
 export class HomeDetailComponent implements OnInit {
+  id: any;
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private homeService: HomeService) {
+    this.route.params.subscribe(
+      result => {this.id = result.id; console.log(this.id) }
+    );
+  }
   home: Home;
   pageTitle = 'Home Detail';
   netImage: any = '../assets/img/house.jpg';
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private homeService: HomeService) { }
+  isActive = true;
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
@@ -38,4 +44,21 @@ export class HomeDetailComponent implements OnInit {
     this.router.navigate(['/edit', this.home.id]);
   }
 
+  deleteHome() {
+    this.homeService.deleteHome(this.home.id).subscribe(
+      result => { alert('Delete Home Success'),
+        this.onBack();
+      }
+    );
+  }
+  updateStatus() {
+    const status: Status = {
+      status: this.isActive
+    };
+    console.log(this.id);
+    this.homeService.updateStatusHome( status, this.id).subscribe(
+      result => alert('Thanh cong'),
+      error => alert('That bat')
+    );
+  }
 }

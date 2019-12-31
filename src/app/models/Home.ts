@@ -11,6 +11,6 @@ export class Home {
   price?: number;
   typeHome?: TypeHome;
   typeRoom?: TypeRoom;
-  description: string;
+  description?: string;
   status?: boolean;
 }

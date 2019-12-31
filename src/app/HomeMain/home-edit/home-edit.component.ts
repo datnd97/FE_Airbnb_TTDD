@@ -90,8 +90,11 @@ export class HomeEditComponent implements OnInit {
       }
     };
     console.log(home.typeRoom.id);
-    this.homeService.updateHome(home, this.id).subscribe(
-      result => console.log('Thanh cong'),
+    this.homeService.updateHome( home, this.id).subscribe(
+      result => {
+        alert('Edit Thanh cong'),
+          this.router.navigate(['/homes', this.home.id]);
+      },
           error => console.log('That bat')
     );
   }

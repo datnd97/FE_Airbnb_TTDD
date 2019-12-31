@@ -19,7 +19,7 @@ export class HomeAddComponent implements OnInit {
               private typeRoomService: TypeRoomService,
               private formBuilder: FormBuilder,
               private router: Router) { }
-
+  isActive = true;
   typeHomeList: TypeHome[];
   typeRoomList: TypeRoom[];
   formHome: FormGroup;
@@ -34,7 +34,7 @@ export class HomeAddComponent implements OnInit {
       price: ['', Validators.required],
       typeHome: ['', Validators.required],
       typeRoom: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
     });
     this.typeHomeService.getListTypeHome().subscribe(
       result =>
@@ -55,6 +55,7 @@ export class HomeAddComponent implements OnInit {
   get typeRoom() {
     return this.formHome.get('typeRoom');
   }
+
   onSubmit() {
     this.submitted = true;
     if (this.formHome.invalid) {
@@ -77,6 +78,7 @@ export class HomeAddComponent implements OnInit {
       },
       price,
       description,
+      status: true
     };
     this.homeService.addHome(home).subscribe(
       result => {

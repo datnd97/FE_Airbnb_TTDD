@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Home} from '../../models/Home';
 import {HomeService} from '../../service/home.service';
-import {Status} from '../../models/Status';
-import {StatusService} from '../../service/status.service';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +10,9 @@ import {StatusService} from '../../service/status.service';
 export class HomeComponent implements OnInit {
   p = 1;
   count = 4;
-  status: Status[];
   listHome: Home[] = [];
   selectedHome: Home;
   constructor(private homeService: HomeService,
-              private statusService: StatusService
   ) { }
 
   ngOnInit() {
@@ -32,12 +28,7 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-  getListStatus() {
-    this.statusService.getListStatus().subscribe(
-      result => this.status = result,
-          error => console.log('Khong nhan duoc')
-    );
-  }
+
 
 
 }

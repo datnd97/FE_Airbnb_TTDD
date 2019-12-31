@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {environment} from '../../environments/environment';
 import {Home} from '../models/Home';
 import {Status} from '../models/Status';
+// import {realpath} from 'fs';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -30,7 +31,7 @@ export class HomeService {
   getHome(id: number): Observable<Home> {
     return this.http.get<Home>(this.HomeUrl + id);
   }
-  updateStatusHome(status: Status): Observable<Status> {
-    return this.http.put<Status>(this.HomeUrl + status.id, status);
+  updateStatusHome(status: Status, id): Observable<Status> {
+    return this.http.put<Status>(this.HomeUrl + id + '/status', status);
   }
 }

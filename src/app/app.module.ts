@@ -12,6 +12,7 @@ import {HeaderComponent} from './header/header.component';
 import {GuardComponent} from './guard/guard.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HomeEditComponent } from './HomeMain/home-edit/home-edit.component';
+import { FontendComponent } from './fontend/fontend.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeEditComponent } from './HomeMain/home-edit/home-edit.component';
     HeaderComponent,
     GuardComponent,
     HomeEditComponent,
+    FontendComponent,
   ],
   imports: [
     BrowserModule,
