@@ -3,6 +3,7 @@ import {Home} from '../../models/Home';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomeService} from '../../service/home.service';
 import {Status} from '../../models/Status';
+import {query} from '@angular/animations';
 
 @Component({
   selector: 'app-home-detail',
@@ -12,7 +13,6 @@ import {Status} from '../../models/Status';
 export class HomeDetailComponent implements OnInit {
   home: Home;
   pageTitle = 'Home Detail';
-  selectStatus: boolean;
   netImage: any = '../assets/img/house.jpg';
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -30,9 +30,12 @@ export class HomeDetailComponent implements OnInit {
       result => this.home = result,
           error => console.log('Khong tim thay'));
   }
+
   onBack() {
     this.router.navigate(['/homes']);
   }
-
+  editHome() {
+    this.router.navigate(['/edit', this.home.id]);
+  }
 
 }

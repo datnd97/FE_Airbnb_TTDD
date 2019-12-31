@@ -6,12 +6,12 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './HomeMain/home/home.component';
 import {HomeDetailComponent} from './HomeMain/home-detail/home-detail.component';
 import {HomeAddComponent} from './HomeMain/home-add/home-add.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {HeaderComponent} from './header/header.component';
 import {GuardComponent} from './guard/guard.component';
-import {HomeStatusComponent} from './HomeMain/home-status/home-status.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { HomeEditComponent } from './HomeMain/home-edit/home-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,14 +21,15 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HomeAddComponent,
     HeaderComponent,
     GuardComponent,
-    HomeStatusComponent,
+    HomeEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

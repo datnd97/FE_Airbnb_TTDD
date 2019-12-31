@@ -4,6 +4,7 @@ import {Home} from './models/Home';
 import {HomeComponent} from './HomeMain/home/home.component';
 import {HomeDetailComponent} from './HomeMain/home-detail/home-detail.component';
 import {HomeAddComponent} from './HomeMain/home-add/home-add.component';
+import {HomeEditComponent} from './HomeMain/home-edit/home-edit.component';
 
 
 const routes: Routes = [
@@ -20,11 +21,15 @@ const routes: Routes = [
     component: HomeAddComponent
   },
   {
-    path: '', redirectTo: 'homes', pathMatch: 'full'
-  },
-  {
-    path: '**', redirectTo: 'homes', pathMatch: 'full'
+    path: 'edit/:id', component: HomeEditComponent,
   }
+  // {
+  //   path: '', redirectTo: 'homes', pathMatch: 'full'
+  // },
+  // {
+  //   path: '**', redirectTo: 'homes', pathMatch: 'full'
+  // },
+
 
 ];
 

@@ -1,4 +1,4 @@
-<div class="card" *ngIf="home">
+<div class="card" *ngIf="home" >
   <div class='card-header'>
     {{pageTitle+": "+home.name}}
   </div>
@@ -17,12 +17,19 @@
           <li class="list-group-item"><b>Type-Home#:</b> {{home.typeHome.name | lowercase }}</li>
           <li class="list-group-item"><b>Type-Room:</b> {{home.typeRoom.name}}</li>
           <li class="list-group-item"><b>Price:</b> {{home.price|currency:'USD':'symbol'}}</li>
-<!--          <li class="list-group-item"><b>Status:</b>&nbsp;-->
+          <li class="list-group-item"><b>Bathroom:</b> {{home.bathroom}}</li>
+          <li class="list-group-item"><b>Bedroom:</b> {{home.bedroom}}</li>
+          <li class="list-group-item"><b>Address:</b> {{home.address}}</li>
+          <!--          <li class="list-group-item"><b>Status:</b>&nbsp;-->
 <!--              <app-home-status [status] = "selectStatus" ></app-home-status>-->
 <!--          </li>-->
         </ul>
       </div>
     </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary"(click)="editHome()">Edit</button>
+    </div>
+<!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>
   <div class='card-footer'>
     <button class='btn btn-outline-secondary' (click)='onBack()'>

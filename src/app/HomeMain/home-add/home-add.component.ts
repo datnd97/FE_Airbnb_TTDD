@@ -87,14 +87,5 @@ export class HomeAddComponent implements OnInit {
     );
   }
 
-  changeHomeId(e) {
-    this.typeHome.patchValue(e.target.value, {
-      onlySelf: true
-    });
-  }
-  changeRoomId(e) {
-    this.typeRoom.patchValue(e.target.value, {
-      onlySelf: true
-    });
-  }
+
 }

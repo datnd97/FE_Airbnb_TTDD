@@ -45,10 +45,11 @@
       </div>
   </div>
   <div class="form-group">
-    <div >
-      <label for="formGroupExampleInput8" >Type Room:</label>
+    <div>
+      <label for="formGroupExampleInput8">Type Room:</label>
     </div>
-    <select formControlName="typeRoom" class="custom-select " id="formGroupExampleInput8"  [ngClass]="{ 'is-invalid': submitted && f.typeRoom.errors }">
+    <select formControlName="typeRoom" class="custom-select " id="formGroupExampleInput8"
+            [ngClass]="{ 'is-invalid': submitted && f.typeRoom.errors }">
 
       <option value="" selected disabled hidden>Please select Type Room</option>
       <option *ngFor="let type of typeRoomList" value="{{type.id}}">{{type.name}}</option>
@@ -56,11 +57,10 @@
     <div *ngIf="submitted && f.typeRoomId?.errors" class="invalid-feedback">
       <div *ngIf="f.typeRoom.errors?.required">Type Room is required</div>
     </div>
-  </div>
 
-  <div class="form-group">
     <label for="price">Price:</label>
-    <input id="price" type="text" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }" />
+    <input id="price" type="text" formControlName="price" class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && f.price.errors }"/>
     <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
       <div *ngIf="f.price.errors.required">Price is required</div>
     </div>
