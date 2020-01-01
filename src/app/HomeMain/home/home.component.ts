@@ -10,6 +10,7 @@ import {HomeService} from '../../service/home.service';
 export class HomeComponent implements OnInit {
   p = 1;
   count = 4;
+  searchText;
   listHome: Home[] = [];
   selectedHome: Home;
   constructor(private homeService: HomeService,

@@ -13,6 +13,7 @@ import {GuardComponent} from './guard/guard.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HomeEditComponent } from './HomeMain/home-edit/home-edit.component';
 import { FontendComponent } from './fontend/fontend.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FontendComponent } from './fontend/fontend.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

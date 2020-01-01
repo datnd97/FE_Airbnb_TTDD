@@ -1,7 +1,10 @@
 <div class="album py-5 bg-light">
   <div class="container">
+    <div class="search-hero">
+      <input class="form-control  empty" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#xF002;  Start searching for a home by name or content">
+    </div>
     <div class="row mt-4">
-      <div routerLink="/homes/{{home.id}}" *ngFor="let home of listHome | paginate:{itemsPerPage: count, currentPage: p}"   class="col-lg-3 col-sm-6 mb-4">
+      <div routerLink="/homes/{{home.id}}" *ngFor="let home of listHome| filter:searchText | paginate:{itemsPerPage: count, currentPage: p} "   class="col-lg-3 col-sm-6 mb-4">
 <!--            <div *ngIf="home.status.id == '1'">-->
         <div class="card shadow border-0 h-100 pointer" >
           <a><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
