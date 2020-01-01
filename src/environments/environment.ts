@@ -8,6 +8,14 @@ export const environment = {
   typeHomeUrl: 'http://localhost:8080/api/auth/type-home/',
   typeRoomUrl: 'http://localhost:8080/api/auth/type-room/',
   statusUrl: 'https://my-json-server.typicode.com/datnd97/Fake-Json/status/',
+  firebase: {
+    apiKey: 'xxx',
+    authDomain: 'jsa-angular5.firebaseapp.com',
+    databaseURL: 'https://jsa-angular5.firebaseio.com',
+    projectId: 'jsa-angular5',
+    storageBucket: '',
+    messagingSenderId: 'xxx'
+  }
 };
 
 /*

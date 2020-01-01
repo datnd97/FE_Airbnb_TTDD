@@ -14,7 +14,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { HomeEditComponent } from './HomeMain/home-edit/home-edit.component';
 import { FontendComponent } from './fontend/fontend.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import {environment} from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, // for database
   ],
   providers: [],
   bootstrap: [AppComponent]
