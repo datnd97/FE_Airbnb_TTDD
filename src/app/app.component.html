@@ -1,8 +1,22 @@
-<app-header></app-header>
+<!--<app-header></app-header>-->
 
-<nav>
-  <a routerLink="/homes/create">Create</a>
-</nav>
-<router-outlet></router-outlet>
+<!--<nav>-->
+<!--  <a routerLink="/homes/create">Create</a>-->
+<!--</nav>-->
+<!--<router-outlet></router-outlet>-->
 
-<!--<app-fontend></app-fontend>-->
+<!--&lt;!&ndash;<app-fontend></app-fontend>&ndash;&gt;-->
+
+<!--  <app-list-upload></app-list-upload>-->
+<div class="container" style="width:400px">
+  <div style="color: blue; margin-bottom: 20px">
+    <h1>{{title}}</h1>
+    <h3>{{description}}</h3>
+  </div>
+
+<app-form-upload></app-form-upload>
+  <br />
+  <br />
+
+  <app-list-upload></app-list-upload>
+</div>

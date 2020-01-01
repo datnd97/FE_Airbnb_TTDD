@@ -7,7 +7,8 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WFD-Airbnb-TTDD';
+  title = 'grokonez';
+  description = 'Angular8-Firebase Demo';
 
 
 }

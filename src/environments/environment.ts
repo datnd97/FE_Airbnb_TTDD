@@ -10,10 +10,10 @@ export const environment = {
   statusUrl: 'https://my-json-server.typicode.com/datnd97/Fake-Json/status/',
   firebase: {
     apiKey: 'xxx',
-    authDomain: 'jsa-angular5.firebaseapp.com',
-    databaseURL: 'https://jsa-angular5.firebaseio.com',
-    projectId: 'jsa-angular5',
-    storageBucket: '',
+    authDomain: 'gkz-angular-firebase.firebaseapp.com',
+    databaseURL: 'https://gkz-angular-firebase.firebaseio.com',
+    projectId: 'gkz-angular-firebase',
+    storageBucket: 'gkz-angular-firebase.appspot.com',
     messagingSenderId: 'xxx'
   }
 };
