@@ -17,6 +17,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {environment} from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { ListUploadComponent } from './upload/list-upload/list-upload.component';
+import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import {UploadFileService} from './upload/upload-file.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +32,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     GuardComponent,
     HomeEditComponent,
     FontendComponent,
+    FormUploadComponent,
+    ListUploadComponent,
+    DetailsUploadComponent,
   ],
   imports: [
     BrowserModule,
