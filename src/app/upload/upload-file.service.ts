@@ -5,58 +5,29 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { FileUpload } from './fileupload';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
+import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadFileService {
 
-  private basePath = '/uploads';
+  constructor(private http: HttpClient) { }
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) { }
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    const formdata: FormData = new FormData();
 
-  pushFileToStorage(fileUpload: FileUpload): Observable<number> {
-    const filePath = `${this.basePath}/${fileUpload.file.name}`;
-    const storageRef = this.storage.ref(filePath);
-    const uploadTask = this.storage.upload(filePath, fileUpload.file);
+    formdata.append('file', file);
 
-    uploadTask.snapshotChanges().pipe(
-      finalize(() => {
-        storageRef.getDownloadURL().subscribe(downloadURL => {
-          console.log('File available at', downloadURL);
-          fileUpload.url = downloadURL;
-          fileUpload.name = fileUpload.file.name;
-          this.saveFileData(fileUpload);
-        });
-      })
-    ).subscribe();
+    const req = new HttpRequest('POST', 'http://localhost:8080/api/auth/image/upload', formdata, {
+      reportProgress: true,
+      responseType: 'text'
+    });
 
-    return uploadTask.percentageChanges();
+    return this.http.request(req);
   }
 
-  private saveFileData(fileUpload: FileUpload) {
-    this.db.list(this.basePath).push(fileUpload);
-  }
-
-  getFileUploads(numberItems): AngularFireList<FileUpload> {
-    return this.db.list(this.basePath, ref =>
-      ref.limitToLast(numberItems));
-  }
-
-  deleteFileUpload(fileUpload: FileUpload) {
-    this.deleteFileDatabase(fileUpload.key)
-      .then(() => {
-        this.deleteFileStorage(fileUpload.name);
-      })
-      .catch(error => console.log(error));
-  }
-
-  private deleteFileDatabase(key: string) {
-    return this.db.list(this.basePath).remove(key);
-  }
-
-  private deleteFileStorage(name: string) {
-    const storageRef = this.storage.ref(this.basePath);
-    storageRef.child(name).delete();
+  getFiles(): Observable<any> {
+    return this.http.get('http://localhost:8080/api/auth/image/all');
   }
 }

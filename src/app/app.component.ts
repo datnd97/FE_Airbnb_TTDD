@@ -7,8 +7,5 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'grokonez';
-  description = 'Angular8-Firebase Demo';
-
-
-}
+  title = 'JavaSampleApproach';
+  description = 'Angular-SpringBoot Demo';}

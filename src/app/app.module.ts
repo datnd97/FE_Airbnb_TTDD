@@ -33,7 +33,7 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     FontendComponent,
     FormUploadComponent,
     ListUploadComponent,
-    DetailsUploadComponent
+    DetailsUploadComponent,
   ],
   imports: [
     BrowserModule,

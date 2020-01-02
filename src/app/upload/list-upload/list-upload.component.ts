@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 
 import { UploadFileService } from '../upload-file.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-list-upload',
@@ -10,20 +11,19 @@ import { UploadFileService } from '../upload-file.service';
 })
 export class ListUploadComponent implements OnInit {
 
-  fileUploads: any[];
+  showFile = false;
+  fileUploads: Observable<string[]>;
 
-  constructor(private uploadService: UploadFileService) {
-  }
+  constructor(private uploadService: UploadFileService) { }
 
   ngOnInit() {
-    // Use snapshotChanges().pipe(map()) to store the key
-    this.uploadService.getFileUploads(6).snapshotChanges().pipe(
-        map(changes =>
-            changes.map(c => ({key: c.payload.key, ...c.payload.val()}))
-        )
-    ).subscribe(fileUploads => {
-      this.fileUploads = fileUploads;
-    });
+  }
 
+  showFiles(enable: boolean) {
+    this.showFile = enable;
+
+    if (enable) {
+      this.fileUploads = this.uploadService.getFiles();
+    }
   }
 }

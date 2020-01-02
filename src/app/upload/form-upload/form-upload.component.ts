@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadFileService } from '../upload-file.service';
 import { FileUpload } from '../fileupload';
 import { Observable } from 'rxjs';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-form-upload',
@@ -11,8 +12,8 @@ import { Observable } from 'rxjs';
 export class FormUploadComponent implements OnInit {
 
   selectedFiles: FileList;
-  currentFileUpload: FileUpload;
-  percentage: number;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
 
   constructor(private uploadService: UploadFileService) { }
 
@@ -24,18 +25,17 @@ export class FormUploadComponent implements OnInit {
   }
 
   upload() {
-    const file = this.selectedFiles.item(0);
-    this.selectedFiles = undefined;
+    this.progress.percentage = 0;
 
-    this.currentFileUpload = new FileUpload(file);
-    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(
-      percentage => {
-        this.percentage = Math.round(percentage);
-      },
-      error => {
-        console.log(error);
+    this.currentFileUpload = this.selectedFiles.item(0);
+    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        console.log('File is completely uploaded!');
       }
-    );
-  }
+    });
 
+    this.selectedFiles = undefined;
+  }
 }
