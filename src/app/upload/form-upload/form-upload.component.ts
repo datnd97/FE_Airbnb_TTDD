@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UploadFileService } from '../upload-file.service';
-import { FileUpload } from '../fileupload';
+
 import { Observable } from 'rxjs';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
 
@@ -27,8 +27,6 @@ export class FormUploadComponent implements OnInit {
   upload() {
     this.progress.percentage = 0;
     for (let i = 0; i < this.selectedFiles.length; i++) {
-
-
       this.currentFileUpload = this.selectedFiles.item(i);
       console.log(this.currentFileUpload);
       this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
