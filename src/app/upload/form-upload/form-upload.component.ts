@@ -26,16 +26,19 @@ export class FormUploadComponent implements OnInit {
 
   upload() {
     this.progress.percentage = 0;
+    for (let i = 0; i < this.selectedFiles.length; i++) {
 
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.progress.percentage = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        console.log('File is completely uploaded!');
-      }
-    });
 
-    this.selectedFiles = undefined;
+      this.currentFileUpload = this.selectedFiles.item(i);
+      console.log(this.currentFileUpload);
+      this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.progress.percentage = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          console.log('File is completely uploaded!');
+        }
+      });
+
+    }
   }
 }
