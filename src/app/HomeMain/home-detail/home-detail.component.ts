@@ -22,8 +22,11 @@ export class HomeDetailComponent implements OnInit {
   home: Home;
   pageTitle = 'Home Detail';
   netImage: any = '../assets/img/house.jpg';
-  isActive = true;
-
+  isActive = false;
+  changeActive(active: boolean) {
+    this.isActive = active;
+    console.log( "Active:" + this.isActive);
+  }
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
@@ -49,16 +52,6 @@ export class HomeDetailComponent implements OnInit {
       result => { alert('Delete Home Success'),
         this.onBack();
       }
-    );
-  }
-  updateStatus() {
-    const status: Status = {
-      status: this.isActive
-    };
-    console.log(this.id);
-    this.homeService.updateStatusHome( status, this.id).subscribe(
-      result => alert('Thanh cong'),
-      error => alert('That bat')
     );
   }
 }

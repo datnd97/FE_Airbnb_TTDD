@@ -13,13 +13,12 @@ import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 export class UploadFileService {
 
   constructor(private http: HttpClient) { }
-
-  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+  pushFileToStorage(file: File, id): Observable<HttpEvent<{}>> {
     const formdata: FormData = new FormData();
 
     formdata.append('file', file);
 
-    const req = new HttpRequest('POST', 'http://localhost:8080/api/auth/image/upload', formdata, {
+    const req = new HttpRequest('POST', 'http://localhost:8080/api/auth/images/upload', formdata, {
       reportProgress: true,
       responseType: 'text'
     });
@@ -28,6 +27,6 @@ export class UploadFileService {
   }
 
   getFiles(): Observable<any> {
-    return this.http.get('http://localhost:8080/api/auth/image/all');
+    return this.http.get('http://localhost:8080/api/auth/images');
   }
 }

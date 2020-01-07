@@ -34,4 +34,5 @@ export class HomeService {
   updateStatusHome(status: Status, id): Observable<Status> {
     return this.http.put<Status>(this.HomeUrl + id + '/status', status);
   }
+
 }

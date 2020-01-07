@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   p = 1;
   count = 4;
   searchText;
-  listHome: Home[] = [];
+  listHome: any ;
   selectedHome: Home;
   constructor(private homeService: HomeService,
   ) { }

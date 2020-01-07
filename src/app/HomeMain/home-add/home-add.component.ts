@@ -47,7 +47,7 @@ export class HomeAddComponent implements OnInit {
       typeHome: ['', Validators.required],
       typeRoom: ['', Validators.required],
       description: ['', Validators.required],
-      image: [],
+
     });
     this.typeHomeService.getListTypeHome().subscribe(
       result =>
@@ -82,8 +82,9 @@ export class HomeAddComponent implements OnInit {
       },
       price,
       description,
-      status: true
+      status: false
     };
+    console.log(home);
     this.homeService.addHome(home).subscribe(
       result => {
         alert('Thanh cong');

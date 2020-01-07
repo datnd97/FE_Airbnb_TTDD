@@ -22,6 +22,7 @@ import { FormUploadComponent } from './upload/form-upload/form-upload.component'
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
+import { HomeStatusComponent } from './HomeMain/home-status/home-status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
     FormUploadComponent,
     ListUploadComponent,
     DetailsUploadComponent,
+    HomeStatusComponent,
   ],
   imports: [
     BrowserModule,
