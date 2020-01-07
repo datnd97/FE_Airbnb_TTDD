@@ -37,6 +37,7 @@ export class HomeAddComponent implements OnInit {
   formHome: FormGroup;
   loading =  false;
   submitted = false;
+  isClick = false;
   ngOnInit() {
     this.formHome = this.formBuilder.group({
       name: ['', Validators.required],
@@ -93,4 +94,9 @@ export class HomeAddComponent implements OnInit {
       error => console.log('That bai')
     );
   }
+
+  // newCustomer() {
+  //   this.isClick = true;
+  //   this.onSubmit();
+  // }
 }

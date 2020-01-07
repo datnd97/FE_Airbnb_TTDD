@@ -1,43 +1,48 @@
-<br>
-<br>
-<br>
-<div *ngIf="home">
+<div style="width: 500px;margin: auto" *ngIf="home">
   <h2>Edit</h2>
+  <div class="form-group row">
+    <label for="1" class="col-sm-2 col-form-label">Name: </label>
+    <div class="col-sm-10">
+      <input name="name" [(ngModel)]="home.name" type="text" class="form-control-plaintext" id="1" value="">
+    </div>
+    <label for="2" class="col-sm-2 col-form-label">Address: </label>
+    <div class="col-sm-10">
+      <input  name="address" [(ngModel)]="home.address" type="text" class="form-control-plaintext" id="2" value="">
+    </div>
+    <label for="3" class="col-sm-2 col-form-label">Bedroom: </label>
+    <div class="col-sm-10">
+      <input  name="bedroom"  [(ngModel)]="home.bedroom" type="text" class="form-control-plaintext" id="3" value="">
+    </div>
+
+    <label for="4" class="col-sm-2 col-form-label">Bathroom: </label>
+    <div class="col-sm-10">
+      <input  name="bathroom" [(ngModel)]="home.bathroom" type="text" class="form-control-plaintext" id="4" value="">
+    </div>
+    <label for="5" class="col-sm-2 col-form-label">Price: </label>
+    <div class="col-sm-10">
+      <input  name="price" [(ngModel)]="home.price" type="text" class="form-control-plaintext" id="5" value="">
+    </div>
+  </div>
   <div>
-    <label>name:
-      <input name="name" [(ngModel)]="home.name" placeholder="name"/>
-    </label>
-
-    <label>address:
-      <input name="address" [(ngModel)]="home.address" placeholder="name"/>
-    </label>
-
-    <label>bedroom:
-      <input name="bedroom"  [(ngModel)]="home.bedroom" placeholder="name"/>
-    </label>
-
-    <label>bathroom:
-      <input name="bathroom" [(ngModel)]="home.bathroom" placeholder="name"/>
-    </label>
-    <label>price:
-      <input name="price" [(ngModel)]="home.price" placeholder="name"/>
-    </label>
-    <select name="typeRoom" class="custom-select " id="formGroupExampleInput8" [(ngModel)]="typeRoomId"  >
+    <select for="6" name="typeRoom" class="col-form-label " id="6" [(ngModel)]="typeRoomId"  >
       <option value="" selected disabled hidden>Please select Type Room</option>
       <option *ngFor="let type of typeRoomList" [value]="type.id">{{type.name}}</option>
     </select>
     <br>
 <div> Select value is Room: {{ typeRoomId}} </div>
-    <select name="typeHome" class="custom-select " id="formGroupExampleInput9" [(ngModel)]="typeHomeId"  >
+    <select for="7" name="typeHome" class="col-form-label " id="7" [(ngModel)]="typeHomeId"  >
       <option value="" selected disabled hidden>Please select Type Home</option>
       <option *ngFor="let type of typeHomeList" [value]="type.id">{{type.name}}</option>
     </select>
     <br>
     <div> Select value is Home: {{ typeHomeId}} </div>
-    <label>description
-      <input name="description" [(ngModel)]="home.description" placeholder="name"/>
-    </label>
   </div>
-<!--  </div>-->
-  <button (click)="save()">Save</button>
-<!--</div>-->
+  <div class="form-group row">
+    <label for="8" class="col-sm-2 col-form-label">Description: </label>
+    <div class="col-sm-10">
+      <input  name="description" [(ngModel)]="home.description" type="text" class="form-control-plaintext" id="8" value="">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary"(click)="save()">Save</button>
+</div>
