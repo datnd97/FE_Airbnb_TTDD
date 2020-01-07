@@ -7,6 +7,8 @@ import {Home} from '../../models/Home';
 import {TypeRoom} from '../../models/TypeRoom';
 import {TypeRoomService} from '../../service/type-room.service';
 import {Router} from '@angular/router';
+import {UploadFileService} from '../../upload/upload-file.service';
+import {HttpEventType, HttpResponse} from '@angular/common/http';
 @Component({
   selector: 'app-home-add',
   templateUrl: './home-add.component.html',
@@ -18,7 +20,17 @@ export class HomeAddComponent implements OnInit {
               private typeHomeService: TypeHomeService,
               private typeRoomService: TypeRoomService,
               private formBuilder: FormBuilder,
-              private router: Router) { }
+              private router: Router
+              ) { }
+  get f() {
+    return this.formHome.controls;
+  }
+  get typeHome() {
+    return this.formHome.get('typeHome');
+  }
+  get typeRoom() {
+    return this.formHome.get('typeRoom');
+  }
   isActive = true;
   typeHomeList: TypeHome[];
   typeRoomList: TypeRoom[];
@@ -45,15 +57,6 @@ export class HomeAddComponent implements OnInit {
       result => this.typeRoomList = result,
         error => console.log('Khong nhan duoc')
     );
-  }
-  get f() {
-    return this.formHome.controls;
-  }
-  get typeHome() {
-    return this.formHome.get('typeHome');
-  }
-  get typeRoom() {
-    return this.formHome.get('typeRoom');
   }
 
   onSubmit() {
@@ -88,6 +91,4 @@ export class HomeAddComponent implements OnInit {
       error => console.log('That bai')
     );
   }
-
-
 }

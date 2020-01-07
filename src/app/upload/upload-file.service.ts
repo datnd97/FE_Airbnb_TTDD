@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFireStorage } from '@angular/fire/storage';
 
-import { FileUpload } from './fileupload';
+
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
