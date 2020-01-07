@@ -21,6 +21,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 import { ListUploadComponent } from './upload/list-upload/list-upload.component';
 import { DetailsUploadComponent } from './upload/details-upload/details-upload.component';
+import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { DetailsUploadComponent } from './upload/details-upload/details-upload.c
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

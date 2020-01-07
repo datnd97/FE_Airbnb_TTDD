@@ -47,6 +47,7 @@ export class HomeAddComponent implements OnInit {
       typeHome: ['', Validators.required],
       typeRoom: ['', Validators.required],
       description: ['', Validators.required],
+      image: [],
     });
     this.typeHomeService.getListTypeHome().subscribe(
       result =>
