@@ -4,7 +4,6 @@ import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Home} from '../models/Home';
 import {TypeHome} from '../models/TypeHome';
-import {Status} from '../models/Status';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
+import {HomeStatusComponent} from "./component/homes/home-status/home-status.component";
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './component/homes/home/home.component';
@@ -17,9 +17,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {CKEditorModule} from "@ckeditor/ckeditor5-angular";
-import { HomeStatusComponent } from './component/homes/home-status/home-status.component';
 import { BookingComponent } from './component/booking/booking.component';
-import { UserComponent } from './component/user/user.component';
+import { UserBookingComponent } from './component/user/user-booking/user-booking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,9 +27,9 @@ import { UserComponent } from './component/user/user.component';
     HomeAddComponent,
     HeaderComponent,
     HomeEditComponent,
-    HomeStatusComponent,
     BookingComponent,
-    UserComponent,
+    UserBookingComponent,,
+    HomeStatusComponent
   ],
   imports: [
     BrowserModule,
