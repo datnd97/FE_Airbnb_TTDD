@@ -1,0 +1,43 @@
+<br>
+<br>
+<br>
+<div *ngIf="home">
+  <h2>Edit</h2>
+  <div>
+    <label>name:
+      <input name="name" [(ngModel)]="home.name" placeholder="name"/>
+    </label>
+
+    <label>address:
+      <input name="address" [(ngModel)]="home.address" placeholder="name"/>
+    </label>
+
+    <label>bedroom:
+      <input name="bedroom"  [(ngModel)]="home.bedroom" placeholder="name"/>
+    </label>
+
+    <label>bathroom:
+      <input name="bathroom" [(ngModel)]="home.bathroom" placeholder="name"/>
+    </label>
+    <label>price:
+      <input name="price" [(ngModel)]="home.price" placeholder="name"/>
+    </label>
+    <select name="typeRoom" class="custom-select " id="formGroupExampleInput8" [(ngModel)]="typeRoomId"  >
+      <option value="" selected disabled hidden>Please select Type Room</option>
+      <option *ngFor="let type of typeRoomList" [value]="type.id">{{type.name}}</option>
+    </select>
+    <br>
+<div> Select value is Room: {{ typeRoomId}} </div>
+    <select name="typeHome" class="custom-select " id="formGroupExampleInput9" [(ngModel)]="typeHomeId"  >
+      <option value="" selected disabled hidden>Please select Type Home</option>
+      <option *ngFor="let type of typeHomeList" [value]="type.id">{{type.name}}</option>
+    </select>
+    <br>
+    <div> Select value is Home: {{ typeHomeId}} </div>
+    <label>description
+      <input name="description" [(ngModel)]="home.description" placeholder="name"/>
+    </label>
+  </div>
+<!--  </div>-->
+  <button (click)="save()">Save</button>
+<!--</div>-->

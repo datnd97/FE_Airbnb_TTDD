@@ -1,0 +1,109 @@
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <img src="https://q-cf.bstatic.com/images/hotel/max1024x768/169/169124345.jpg" style="width: 200px; height: 150px" alt=""/>
+      <h3>Welcome</h3>
+      <p>Đặt những chỗ ở độc đáo và những điều nên trải nghiệm</p>
+      <input type="submit" name="" value="Login"/><br/>
+    </div>
+    <div class="col-md-9 register-right">
+      <div *ngIf="successMessage" class="alert alert-success text-center">
+        <p>{{successMessage}}</p>
+      </div>
+      <div *ngIf="failMessage" class="alert alert-danger text-center">
+        <p>{{failMessage}}</p>
+      </div>
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+            <div class="row register-form">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <div class="name">Họ và tên</div>
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="form-control" type="text" formControlName="name">
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('name').hasError('required') && registerForm.get('name').touched">
+                    Tên đăng nhập phải được điền
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('name').hasError('minlength') && registerForm.get('name').touched">
+                    Tên người dùng phải có ít nhất 2 kí tự
+                  </div>
+
+                </div>
+
+                <div class="form-group">
+                  <div class="name">Tên đăng nhập</div>
+                  <div class="name">
+                    <div class="input-group">
+                      <input class="form-control" type="text" formControlName="username">
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('username').hasError('required') && registerForm.get('username').touched">
+                    Tên đăng nhập phải được điền
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('username').hasError('minlength') && registerForm.get('username').touched">
+                    Tên đăng nhập phải có nhiều hơn 6 ký tự
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('username').hasError('maxlength') && registerForm.get('username').touched">
+                    Tên đăng nhập phải có ít hơn 12 ký tự
+                  </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                  <div class="name">Mật khẩu</div>
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="form-control" type="password" formControlName="password">
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                    Mật khẩu phải được điền
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+                    Mật khẩu phải có nhiều hơn 6 ký tự
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                    Mật khẩu phải có ít hơn 12 ký tự
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="name">Email</div>
+                  <div class="value">
+                    <div class="input-group">
+                      <input class="form-control" type="email" formControlName="email">
+                    </div>
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+                    Email phải được điền
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">
+                    Không đúng định dạng email
+                  </div>
+
+                </div>
+
+<!--                <div class="form-group">-->
+<!--                  <div class="name">Role</div>-->
+<!--                  <input class="form-control" type="text" formControlName="role">-->
+
+<!--                </div>-->
+
+
+                <button class="btnRegister" type="submit">Đăng ký</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
