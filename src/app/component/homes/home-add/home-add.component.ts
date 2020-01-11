@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {HomeService} from '../../service/home.service';
-import {TypeHome} from '../../models/TypeHome';
-import {TypeHomeService} from '../../service/type-home.service';
-import {Home} from '../../models/Home';
-import {TypeRoom} from '../../models/TypeRoom';
-import {TypeRoomService} from '../../service/type-room.service';
+import {HomeService} from '../../../service/home.service';
+import {TypeHome} from '../../../models/TypeHome';
+import {TypeHomeService} from '../../../service/type-home.service';
+import {Home} from '../../../models/Home';
+import {TypeRoom} from '../../../models/TypeRoom';
+import {TypeRoomService} from '../../../service/type-room.service';
 import {Router} from '@angular/router';
-import {UploadFileService} from '../../upload/upload-file.service';
 import {HttpEventType, HttpResponse} from '@angular/common/http';
+// import * as firebase from 'firebase';
 @Component({
   selector: 'app-home-add',
   templateUrl: './home-add.component.html',
@@ -20,7 +20,8 @@ export class HomeAddComponent implements OnInit {
               private typeHomeService: TypeHomeService,
               private typeRoomService: TypeRoomService,
               private formBuilder: FormBuilder,
-              private router: Router
+              private router: Router,
+              // private fb: AngularFireDatabase
               ) { }
   get f() {
     return this.formHome.controls;
@@ -38,9 +39,11 @@ export class HomeAddComponent implements OnInit {
   loading =  false;
   submitted = false;
   isClick = false;
+  arrayPicture;
   ngOnInit() {
     this.formHome = this.formBuilder.group({
       name: ['', Validators.required],
+      // picture: new FormControl(''),
       address: ['', Validators.required],
       bedroom: ['', Validators.required],
       bathroom: ['', Validators.required],
@@ -70,8 +73,11 @@ export class HomeAddComponent implements OnInit {
     }
     this.loading = true;
     const {name, address, bathroom, bedroom, typeHome, typeRoom, price, description} = this.formHome.value;
+    // this.arrayPicture = this.arrayPicture.trim(); cat phan thua
+    // this.home.picture = this.arrayPicture;
     const home: Home = {
       name,
+      // picture
       address,
       bathroom,
       bedroom,
@@ -95,8 +101,34 @@ export class HomeAddComponent implements OnInit {
     );
   }
 
-  // newCustomer() {
-  //   this.isClick = true;
-  //   this.onSubmit();
-  // }
+  uploadFile(event) {
+    this.arrayPicture = '';
+    console.log(event);
+    const file = event.target.files;
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
+    let i = 0;
+    while ( i < file.length ) {
+      console.log('Outside ', i, file[i]);
+      // @ts-ignore
+      const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
+      uploadTask.on(
+        firebase.storage.TaskEvent.STATE_CHANGED,
+        (snapshot) => {
+          const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+          console.log(snap);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            this.arrayPicture += downloadURL + ' ';
+          });
+        });
+      i++;
+    }
+  }
+
 }

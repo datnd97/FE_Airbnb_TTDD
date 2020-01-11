@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Home} from '../models/Home';
-import {Status} from '../models/Status';
 // import {realpath} from 'fs';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -31,8 +30,21 @@ export class HomeService {
   getHome(id: number): Observable<Home> {
     return this.http.get<Home>(this.HomeUrl + id);
   }
-  updateStatusHome(status: Status, id): Observable<Status> {
-    return this.http.put<Status>(this.HomeUrl + id + '/status', status);
-  }
+  // public convertHouseList(): HouseConvert[] {
+  //   let houseList: HouseConvert[] = [];
+  //   let array: DataHouseList[] = [];
+  //   this.getList().subscribe(result => {
+  //     array = result.data;
+  //     // tslint:disable-next-line:prefer-for-of
+  //     for (let i = 0; i < array.length; i++) {
+  //       const arrayPicture = array[i].picture.split(' ');
+  //       const house = new HouseConvert(array[i].id, array[i].name, arrayPicture, array[i].address, array[i].price);
+  //
+  //       houseList.push(house);
+  //       console.log('>>>> ' + houseList);
+  //     }
+  //   });
+  //   return houseList;
+  // }
 
 }
