@@ -1,4 +1,3 @@
-import {Status} from './Status';
 import {TypeHome} from './TypeHome';
 import {TypeRoom} from './TypeRoom';
 

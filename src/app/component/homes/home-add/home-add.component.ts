@@ -101,34 +101,34 @@ export class HomeAddComponent implements OnInit {
     );
   }
 
-  uploadFile(event) {
-    this.arrayPicture = '';
-    console.log(event);
-    const file = event.target.files;
-    const metadata = {
-      contentType: 'image/jpeg',
-    };
-    let i = 0;
-    while ( i < file.length ) {
-      console.log('Outside ', i, file[i]);
-      // @ts-ignore
-      const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
-      uploadTask.on(
-        firebase.storage.TaskEvent.STATE_CHANGED,
-        (snapshot) => {
-          const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-          console.log(snap);
-        },
-        (error) => {
-          console.log(error);
-        },
-        () => {
-          uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-            this.arrayPicture += downloadURL + ' ';
-          });
-        });
-      i++;
-    }
-  }
+  // uploadFile(event) {
+  //   this.arrayPicture = '';
+  //   console.log(event);
+  //   const file = event.target.files;
+  //   const metadata = {
+  //     contentType: 'image/jpeg',
+  //   };
+  //   let i = 0;
+  //   while ( i < file.length ) {
+  //     console.log('Outside ', i, file[i]);
+  //     // @ts-ignore
+  //     const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
+  //     uploadTask.on(
+  //       firebase.storage.TaskEvent.STATE_CHANGED,
+  //       (snapshot) => {
+  //         const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+  //         console.log(snap);
+  //       },
+  //       (error) => {
+  //         console.log(error);
+  //       },
+  //       () => {
+  //         uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+  //           this.arrayPicture += downloadURL + ' ';
+  //         });
+  //       });
+  //     i++;
+  //   }
+  // }
 
 }
