@@ -33,16 +33,12 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   },
 
-
-
-
-
-  // {
-  //   path: '', redirectTo: 'homes', pathMatch: 'full'
-  // },
-  // {
-  //   path: '**', redirectTo: 'homes', pathMatch: 'full'
-  // },
+  {
+    path: '', redirectTo: 'homes', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: 'homes', pathMatch: 'full'
+  },
 
 
 ];

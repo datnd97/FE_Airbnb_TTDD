@@ -1,4 +1,4 @@
 <div *ngIf="home">
-<button class="btn btn-primary" *ngIf='home.status!==null ' (click)='updateActive(false)'>Inactive</button>
-<button class="btn btn-primary" *ngIf='home.status!==null' (click)='updateActive(true)'>Active</button>
+<button class="btn btn-primary" *ngIf='home ' (click)='updateActive(false)'>Inactive</button>
+<button class="btn btn-primary" *ngIf='home' (click)='updateActive(true)'>Active</button>
 </div>
