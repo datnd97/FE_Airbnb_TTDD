@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@ckeditor/ckeditor5-angular": "^1.1.2",
     "angularfire2": "^5.2.3",
+    "bootstrap": "^4.4.1",
     "firebase": "^7.6.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-pagination": "^5.0.0",

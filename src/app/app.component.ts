@@ -8,4 +8,6 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AppComponent {
   title = 'JavaSampleApproach';
-  description = 'Angular-SpringBoot Demo';}
+  description = 'Angular-SpringBoot Demo';
+  role = sessionStorage.getItem('role');
+}

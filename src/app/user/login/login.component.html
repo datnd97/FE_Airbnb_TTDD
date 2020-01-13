@@ -1,0 +1,74 @@
+<section class="login-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 login-sec">
+        <h2 class="text-center">Login Now</h2>
+        <div class="alert alert-danger" *ngIf="this.error !== ''">{{this.error}}</div>
+        <form class="login-form validate-form" [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+            <input type="text" formControlName="username" class="form-control" placeholder="tên đăng nhập">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+            <input type="password" formControlName="password" class="form-control" placeholder="mật khẩu">
+          </div>
+
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              <small>Remember Me</small>
+            </label>
+            <button type="submit" class="btn btn-login float-right">Submit</button>
+          </div>
+
+        </form>
+        <div class="copy-text">Created with <i class="fa fa-heart"></i> by DoanToan</div>
+      </div>
+      <div class="col-md-8 banner-sec">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="https://www.grizzlybearcafe.com/wp-content/uploads/2019/06/images1694-5cfa11a9ae200.jpg"
+                   alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <div class="banner-text">
+                  <h2>Chuyên gia địa phương</h2>
+                  <p>Được dẫn dắt bởi người dân địa phương yêu thích nơi họ sinh sống và những việc họ làm.</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://r-cf.bstatic.com/images/hotel/max1024x768/479/47926842.jpg"
+                   alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <div class="banner-text">
+                  <h2>Airbnb Phiêu lưu</h2>
+                  <p>Các chuyến đi nhiều ngày do các chuyên gia địa phương hướng dẫn - bao gồm các hoạt động, bữa ăn và chỗ ở</p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="https://q-cf.bstatic.com/images/hotel/max1024x768/846/84679856.jpg"
+                   alt="First slide">
+              <div class="carousel-caption d-none d-md-block">
+                <div class="banner-text">
+                  <h2>Nơi ở Airbnb Plus</h2>
+                  <p>Tập hợp các nơi ở đã được xác minh về chất lượng và thiết kế</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

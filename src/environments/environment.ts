@@ -15,7 +15,8 @@ export const environment = {
     projectId: 'gkz-angular-firebase',
     storageBucket: 'gkz-angular-firebase.appspot.com',
     messagingSenderId: 'xxx'
-  }
+  },
+  apiUrl: 'http://localhost:8080'
 };
 
 /*
