@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {Home} from './models/Home';
+<<<<<<< HEAD
 import {HomeComponent} from './HomeMain/home/home.component';
 import {HomeDetailComponent} from './HomeMain/home-detail/home-detail.component';
 import {HomeAddComponent} from './HomeMain/home-add/home-add.component';
@@ -12,6 +13,12 @@ import {RegisterComponent} from './user/register/register.component';
 import {LoginComponent} from './user/login/login.component';
 
 
+=======
+import {HomeComponent} from './component/homes/home/home.component';
+import {HomeDetailComponent} from './component/homes/home-detail/home-detail.component';
+import {HomeAddComponent} from './component/homes/home-add/home-add.component';
+import {HomeEditComponent} from './component/homes/home-edit/home-edit.component';
+>>>>>>> a2504c7d40eae8fa1c57d1c67f621d033ee339f1
 
 
 const routes: Routes = [
@@ -30,6 +37,7 @@ const routes: Routes = [
   {
     path: 'edit/:id', component: HomeEditComponent,
   },
+<<<<<<< HEAD
   {
     path: 'upload/:id', component: FormUploadComponent
   },
@@ -45,6 +53,8 @@ const routes: Routes = [
 
 
 
+=======
+>>>>>>> a2504c7d40eae8fa1c57d1c67f621d033ee339f1
 
   // {
   //   path: '', redirectTo: 'homes', pathMatch: 'full'

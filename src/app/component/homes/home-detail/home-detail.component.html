@@ -34,7 +34,7 @@
       <button class="btn btn-primary"(click)="editHome()">Edit</button>
       <button class="btn btn-danger"(click) = "deleteHome()">Delete</button>
       <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
-
+      <app-booking [home] = home></app-booking>
 
     </div>
 <!--    <app-home-edit [home] = selectHome></app-home-edit>-->

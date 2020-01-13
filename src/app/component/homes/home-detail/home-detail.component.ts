@@ -1,8 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Home} from '../../models/Home';
+import {Home} from '../../../models/Home';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HomeService} from '../../service/home.service';
-import {Status} from '../../models/Status';
+import {HomeService} from '../../../service/home.service';
 import {query} from '@angular/animations';
 
 @Component({
@@ -54,4 +53,26 @@ export class HomeDetailComponent implements OnInit {
       }
     );
   }
+  // getHouseId() {
+  //   const id = +this.activatedRoute.snapshot.paramMap.get('id');
+  //   this.houseService.getHouseId(this.id).subscribe(result => {
+  //     this.houseDemo = result.data;
+  //     console.log('>>>>Data detail house: ' + JSON.stringify(this.houseDemo));
+  //     this.house = this.convertHouseId(this.houseDemo, this.sliptString(this.houseDemo));
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  //   console.log(this.house);
+  // }
+
+  // public sliptString(house: DataHouseDetails): any {
+  //   const arrayPicture = house.picture.split(' ');
+  //   return arrayPicture;
+  // } co the ko xai
+
+  // public convertHouseId(house: DataHouseDetails, array: string[]): HouseConvertById {
+  //   const houseDetail = new HouseConvertById(house.id, house.name, house.catName, array, house.address,
+  //     house.bedroomNumber, house.bathroomNumber, house.description, house.price, house.area, house.userName, house.userId);
+  //   return houseDetail;
+  // }
 }

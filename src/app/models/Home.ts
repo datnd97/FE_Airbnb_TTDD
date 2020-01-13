@@ -5,6 +5,7 @@ import {TypeRoom} from './TypeRoom';
 export class Home {
   id?: number;
   name?: string;
+  // picture?:string;
   address?: string;
   bedroom?: number;
   bathroom?: number;
