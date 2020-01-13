@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../helper/authentication.service';
 import {first} from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-login',
@@ -24,13 +25,13 @@ export class LoginComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
               private router: Router,
               private authenticationService: AuthenticationService) {
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
+    // if (this.authenticationService.currentUserValue) {
+    //   this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit() {
-    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
+    // this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
   }
 
 
@@ -41,16 +42,19 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('role' + data.roles);
-          console.log(data);
-          sessionStorage.setItem('role', data.roles);
-          this.router.navigate([this.returnUrl]);
+          console.log('data' + data);
+          sessionStorage.setItem('role', data.role);
+          sessionStorage.setItem('token', data.token);
+          this.router.navigate(['homes']);
         },
         error => {
           this.error = 'Sai tên đăng nhập hoặc mật khẩu';
           this.loading = false;
+          return false;
+          // this.router.navigate(['/home-login']);
         });
-    this.router.navigate(['homes']);
+
   }
+
 
 }

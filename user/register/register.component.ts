@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../service/user.service';
 import {User} from '../../model/user';
+import {Role} from '../../model/role';
 
 @Component({
   selector: 'app-register',
@@ -12,18 +13,30 @@ export class RegisterComponent implements OnInit {
 
   successMessage = '';
   failMessage = '';
+  roles: Role[] = [];
   registerForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]),
-    role: new FormControl('')
+    roleId: new FormControl('')
   });
 
   constructor(private userService: UserService) {
+    userService.getRoles().subscribe(
+      data => {
+        this.roles = data;
+        console.log('roles');
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   ngOnInit() {
+
   }
 
   register() {
@@ -37,7 +50,7 @@ export class RegisterComponent implements OnInit {
         username: this.registerForm.value.username,
         password: this.registerForm.value.password,
         email: this.registerForm.value.email,
-        role: this.registerForm.value.role,
+        roleId: this.registerForm.value.roleId,
 
       };
       this.userService.register(user).subscribe(() => {
@@ -47,6 +60,19 @@ export class RegisterComponent implements OnInit {
         this.failMessage = 'Đăng ký thất bại';
       });
     }
+  }
+
+  getRoles() {
+    this.userService.getRoles().subscribe(
+      data => {
+        this.roles = data;
+        console.log('roles');
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
 }
