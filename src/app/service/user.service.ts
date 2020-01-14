@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {User} from '../model/user';
+import {User} from '../model/auth/user';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
-import {Role} from '../model/role';
-import {Password} from '../model/password';
+import {Role} from '../model/auth/role';
+import {Password} from '../model/auth/password';
 
 
 const API_URL = `${environment.apiUrl}`;

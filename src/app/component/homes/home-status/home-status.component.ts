@@ -1,8 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Home} from "../../../models/Home";
+import {Home} from "../../../model/home/Home";
 import {Observable} from "rxjs";
-import {TypeHome} from "../../../models/TypeHome";
-import {TypeRoom} from "../../../models/TypeRoom";
+import {TypeHome} from "../../../model/home/TypeHome";
+import {TypeRoom} from "../../../model/home/TypeRoom";
 import {TypeRoomService} from "../../../service/type-room.service";
 import {HomeService} from "../../../service/home.service";
 import {ActivatedRoute, Router} from "@angular/router";

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {HomeService} from '../../../service/home.service';
-import {TypeHome} from '../../../models/TypeHome';
+import {TypeHome} from '../../../model/home/TypeHome';
 import {TypeHomeService} from '../../../service/type-home.service';
-import {Home} from '../../../models/Home';
-import {TypeRoom} from '../../../models/TypeRoom';
+import {Home} from '../../../model/home/Home';
+import {TypeRoom} from '../../../model/home/TypeRoom';
 import {TypeRoomService} from '../../../service/type-room.service';
 import {Router} from '@angular/router';
 import {HttpEventType, HttpResponse} from '@angular/common/http';

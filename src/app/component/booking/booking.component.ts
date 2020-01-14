@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Home} from '../../models/Home';
+import {Home} from '../../model/home/Home';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BookingService} from '../../service/booking.service';

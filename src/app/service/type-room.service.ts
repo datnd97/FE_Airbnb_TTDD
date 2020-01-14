@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {TypeHome} from '../models/TypeHome';
-import {TypeRoom} from '../models/TypeRoom';
+import {TypeHome} from '../model/home/TypeHome';
+import {TypeRoom} from '../model/home/TypeRoom';
 
 @Injectable({
   providedIn: 'root'

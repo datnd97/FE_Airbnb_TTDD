@@ -19,12 +19,13 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
 import { LoginComponent } from './user/login/login.component';
 import { RegisterComponent } from './user/register/register.component';
-import {JwtInterceptor} from './helper/jwt-interceptor';
-import {ErrorInterceptor} from './helper/error-interceptor';
+import {JwtInterceptor} from './service/authUser/jwt-interceptor';
+import {ErrorInterceptor} from './service/authUser/error-interceptor';
 import { ChangePasswordComponent } from './user/change-password/change-password.component';
 import { HomeStatusComponent } from './component/homes/home-status/home-status.component';
-import { UserComponent } from './component/user/user.component';
 import {BookingComponent} from './component/booking/booking.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './component/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -38,8 +39,9 @@ import {BookingComponent} from './component/booking/booking.component';
     LoginComponent,
     RegisterComponent,
     ChangePasswordComponent,
-    UserComponent,
-    BookingComponent
+    BookingComponent,
+    CarouselComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import {BookingComponent} from './component/booking/booking.component';
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     CKEditorModule,
+    NgbModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],

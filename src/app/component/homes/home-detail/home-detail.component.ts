@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Home} from '../../../models/Home';
+import {Home} from '../../../model/home/Home';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomeService} from '../../../service/home.service';
 import {query} from '@angular/animations';
@@ -10,6 +10,7 @@ import {query} from '@angular/animations';
   styleUrls: ['./home-detail.component.css']
 })
 export class HomeDetailComponent implements OnInit {
+
   id: any;
   constructor(private route: ActivatedRoute,
               private router: Router,

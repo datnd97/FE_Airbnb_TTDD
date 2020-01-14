@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Home} from '../../../models/Home';
+import {Home} from '../../../model/home/Home';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HomeService} from '../../../service/home.service';
 import {TypeHomeService} from '../../../service/type-home.service';
 import {TypeRoomService} from '../../../service/type-room.service';
-import {TypeHome} from '../../../models/TypeHome';
-import {TypeRoom} from '../../../models/TypeRoom';
+import {TypeHome} from '../../../model/home/TypeHome';
+import {TypeRoom} from '../../../model/home/TypeRoom';
 
 @Component({
   selector: 'app-home-edit',
