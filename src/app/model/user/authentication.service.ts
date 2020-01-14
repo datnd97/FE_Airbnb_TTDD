@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {UserToken} from '../../model/auth/user-token';
+import {UserToken} from './user-token';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {map} from 'rxjs/operators';
@@ -26,9 +26,11 @@ export class AuthenticationService {
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         console.log(user);
+        sessionStorage.setItem('id', user.id);
         sessionStorage.setItem('token', user.token);
         sessionStorage.setItem('role', user.role);
         // this.currentUserSubject.next(user);
+        console.log(user);
         return user;
       }));
   }

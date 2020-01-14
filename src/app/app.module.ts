@@ -17,15 +17,16 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import {CKEditorModule} from '@ckeditor/ckeditor5-angular';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-import {JwtInterceptor} from './service/authUser/jwt-interceptor';
-import {ErrorInterceptor} from './service/authUser/error-interceptor';
-import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { LoginComponent } from './user/component/information/login/login.component';
+import { RegisterComponent } from './user/component/information/register/register.component';
+import {JwtInterceptor} from './model/user/jwt-interceptor';
+import {ErrorInterceptor} from './model/user/error-interceptor';
+import { ChangePasswordComponent } from './user/component/information/change-password/change-password.component';
 import { HomeStatusComponent } from './component/homes/home-status/home-status.component';
 import {BookingComponent} from './component/booking/booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './component/carousel/carousel.component';
+import { UserListComponent } from './user/component/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     ChangePasswordComponent,
     BookingComponent,
     CarouselComponent,
+    UserListComponent,
 
   ],
   imports: [
@@ -56,7 +58,7 @@ import { CarouselComponent } from './component/carousel/carousel.component';
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     CKEditorModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],

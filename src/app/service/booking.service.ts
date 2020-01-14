@@ -21,6 +21,6 @@ export class BookingService {
     return this.http.delete<void>(this.bookingUrl + id);
   }
   createBooking(id: number, booking: Booking): Observable<Booking> {
-    return this.http.post<Booking>(this.bookingUrl + id, booking);
+    return this.http.post<Booking>(this.bookingUrl + 'create/' + id, booking);
   }
 }

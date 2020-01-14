@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {UserService} from '../../service/user.service';
-import {User} from '../../model/auth/user';
-import {Role} from '../../model/auth/role';
+import {UserService} from '../../../../service/user.service';
+import {User} from '../../../../model/user/user';
+import {Role} from '../../../../model/user/role';
 
 @Component({
   selector: 'app-register',
@@ -51,8 +51,8 @@ export class RegisterComponent implements OnInit {
         password: this.registerForm.value.password,
         email: this.registerForm.value.email,
         roleId: this.registerForm.value.roleId,
-
       };
+      alert(JSON.stringify(user));
       this.userService.register(user).subscribe(() => {
         this.successMessage = 'Đăng ký thành công';
         this.registerForm.reset();

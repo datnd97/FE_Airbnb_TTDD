@@ -1,6 +1,7 @@
 export class Booking {
-  beginDate: any;
-  endDate: any;
+  checkin: any;
+  checkout: any;
   children: number;
   guest: number;
+  cancelled?: boolean;
 }

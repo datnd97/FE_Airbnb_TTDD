@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthenticationService} from '../../service/authUser/authentication.service';
+import {AuthenticationService} from '../../../../model/user/authentication.service';
 import {first} from 'rxjs/operators';
 
 
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
           console.log('data' + data);
           sessionStorage.setItem('role', data.role);
           sessionStorage.setItem('token', data.token);
+          sessionStorage.setItem('id', data.id);
           this.router.navigate(['homes']);
         },
         error => {

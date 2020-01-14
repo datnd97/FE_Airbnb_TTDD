@@ -1,66 +1,40 @@
-<div class="container">
-
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Booking
-  </button>
-
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Booking Information</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form [formGroup]="bookingForm" class="form-group">
-            <label for="1">Begin Date:</label>
-            <input id="1" type="date" formControlName="beginDate" class="form-control">
-            <div class="alert-danger" *ngIf="!bookingForm.controls['beginDate'].valid && (bookingForm.controls['beginDate'].touched)">
-              <div [hidden]="!bookingForm.controls['beginDate'].errors.required">
-                BeginDate is required.
-            </div>
-            </div>
-            <label for="2">End Date:</label>
-            <input id="2" type="date" formControlName="endDate" class="form-control">
-            <div class="alert-danger" *ngIf="!bookingForm.controls['endDate'].valid && (bookingForm.controls['endDate'].touched)">
-              <div [hidden]="!bookingForm.controls['endDate'].errors.required">
-                EndDate is required.
-              </div>
-            </div>
-            <label for="3">Children:</label>
-            <input id="3" type="number"
-                   class="form-control" aria-describedby="Help" placeholder="Children" formControlName="children" required>
-            <div class="alert-danger" *ngIf="!bookingForm.controls['children'].valid && (bookingForm.controls['children'].touched)">
-              <div [hidden]="!bookingForm.controls['children'].errors.required">
-                Children is required.
-              </div>
-            </div>
-            <small id="Help" class="form-text text-muted">Tối đa là: 3.</small>
-
-            <label for="4">Guest:</label>
-            <input id="4" type="number" formControlName="guest" aria-describedby="Help1" class="form-control">
-            <div class="alert-danger" *ngIf="!bookingForm.controls['guest'].valid && (bookingForm.controls['guest'].touched)">
-              <div [hidden]="!bookingForm.controls['guest'].errors.required">
-                Guest is required.
-              </div>
-            </div>
-            <small id="Help1" class="form-text text-muted">Tối đa là: 3.</small>
-          </form>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="onReset()" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-secondary"(click)="onSubmit(bookingForm.value)">Book</button>
-        </div>
-
+<br >
+<div class="container " style="width: 500px;margin: auto" >
+  <form [formGroup]="bookingForm" class="form-group" (ngSubmit)="onSubmit(bookingForm.value)">
+    <label for="1">Begin Date:</label>
+    <input id="1" type="date" formControlName="checkin" class="form-control">
+    <div class="alert-danger" *ngIf="!bookingForm.controls['checkin'].valid && (bookingForm.controls['checkin'].touched)">
+      <div [hidden]="!bookingForm.controls['checkin'].errors.required">
+        Begin Date is required.
       </div>
     </div>
-  </div>
+    <label for="2">End Date:</label>
+    <input id="2" type="date" formControlName="checkout" class="form-control">
+    <div class="alert-danger" *ngIf="!bookingForm.controls['checkout'].valid && (bookingForm.controls['checkout'].touched)">
+      <div [hidden]="!bookingForm.controls['checkout'].errors.required">
+        End Date is required.
+      </div>
+    </div>
+    <label for="3">Children:</label>
+    <input id="3" type="number"
+           class="form-control" aria-describedby="Help" placeholder="Children" formControlName="children" required>
+    <div class="alert-danger" *ngIf="!bookingForm.controls['children'].valid && (bookingForm.controls['children'].touched)">
+      <div [hidden]="!bookingForm.controls['children'].errors.required">
+        Children is required.
+      </div>
+    </div>
+    <small id="Help" class="form-text text-muted">Tối đa là: 3.</small>
 
+    <label for="4">Guest:</label>
+    <input id="4" type="number" formControlName="guest" aria-describedby="Help1" class="form-control">
+    <div class="alert-danger" *ngIf="!bookingForm.controls['guest'].valid && (bookingForm.controls['guest'].touched)">
+      <div [hidden]="!bookingForm.controls['guest'].errors.required">
+        Guest is required.
+      </div>
+    </div>
+    <small id="Help1" class="form-text text-muted">Tối đa là: 3.</small>
+    <button class="btn-primary">Book Now</button>
+    <button  (click)="goBack()">go back</button>
+  </form>
 </div>
+
