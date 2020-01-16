@@ -8,7 +8,9 @@ import {HomeComponent} from './component/homes/home/home.component';
 import {HomeDetailComponent} from './component/homes/home-detail/home-detail.component';
 import {HomeAddComponent} from './component/homes/home-add/home-add.component';
 import {HomeEditComponent} from './component/homes/home-edit/home-edit.component';
-import {BookingComponent} from './component/booking/booking.component';
+import {BookingComponent} from './component/Booking_Component/booking/booking.component';
+import {BookingListByUserComponent} from './component/Booking_Component/booking-list-by-user/booking-list-by-user.component';
+import {BookingListHiredHostComponent} from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
 
 
 const routes: Routes = [
@@ -37,11 +39,17 @@ const routes: Routes = [
     path: 'booking/:id', component: BookingComponent
   },
   {
+    path: 'booking-user-list', component: BookingListByUserComponent
+  },
+  {
+    path: 'booking-hired-list', component: BookingListHiredHostComponent
+  },
+  {
     path: '', redirectTo: 'homes', pathMatch: 'full'
   },
   {
     path: '**', redirectTo: 'homes', pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({

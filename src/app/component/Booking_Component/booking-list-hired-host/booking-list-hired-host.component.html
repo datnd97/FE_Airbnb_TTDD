@@ -1,0 +1,40 @@
+<table *ngIf="bookingList" class="table table-hover">
+  <thead>
+  <tr class="table-bordered table-primary"
+      style="text-align: center; font-weight: 900 ; color: red ; font-size: 20px">
+    <th scope="col">#ID</th>
+    <th scope="col">Tên Nhà</th>
+    <th scope="col">Check in</th>
+    <th scope="col">Check out</th>
+    <th scope="col">Người</th>
+    <th scope="col">Children</th>
+    <th scope="col">Thời gian đặt</th>
+    <th scope="col">Nguoi đang thuê</th>
+    <th scope="col">Trạng thái</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr  class="table-bordered" style="text-align: center"
+       *ngFor="let bookingItem of bookingList">
+    <th scope="row">{{bookingItem.id}}</th>
+    <th>{{bookingItem.home.name}}</th>
+    <th>{{bookingItem.checkin}}</th>
+    <th>{{bookingItem.checkout}}</th>
+    <th>{{bookingItem.guest}}</th>
+    <th>{{bookingItem.children}}</th>
+    <th>{{bookingItem.timeNow}}</th>
+    <th>{{bookingItem.user.name}}</th>
+    <th>
+<!--      <app-booking-cancel [bookingId]="bookingItem.id"-->
+<!--                          (valueChange)="receiveBooking($event)"-->
+<!--      ></app-booking-cancel>-->
+    </th>
+
+  </tr>
+
+
+  </tbody>
+</table>
+

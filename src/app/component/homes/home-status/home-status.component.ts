@@ -35,7 +35,6 @@ export class HomeStatusComponent implements OnInit {
     this.reloadDate();
   }
   updateActive(isActive: boolean) {
-
     const home = {
       id: this.home.id,
       name: this.home.name,

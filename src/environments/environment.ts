@@ -8,7 +8,8 @@ export const environment = {
   typeHomeUrl: 'http://localhost:8080/api/auth/type-home/',
   typeRoomUrl: 'http://localhost:8080/api/auth/type-room/',
   statusUrl: 'https://my-json-server.typicode.com/datnd97/Fake-Json/status/',
-  bookingUrl : 'http://localhost:8080/api/auth/booking/',
+  userBookingUrl : 'http://localhost:8080/api/user/booking/',
+  hostBookingUrl : 'http://localhost:8080/api/host/booking/',
   firebase: {
     apiKey: 'xxx',
     authDomain: 'gkz-angular-firebase.firebaseapp.com',

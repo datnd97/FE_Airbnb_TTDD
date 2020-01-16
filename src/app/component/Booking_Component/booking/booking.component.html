@@ -1,0 +1,118 @@
+<!--<br >-->
+<!--<div class="container " style="width: 500px;margin: auto" >-->
+<!--  <form [formGroup]="bookingForm" class="form-group" (ngSubmit)="onSubmit(bookingForm.value)">-->
+<!--    <label for="1">Begin Date:</label>-->
+<!--    <input id="1" type="date" formControlName="checkin" class="form-control">-->
+<!--    <div class="alert-danger" *ngIf="!bookingForm.controls['checkin'].valid && (bookingForm.controls['checkin'].touched)">-->
+<!--      <div [hidden]="!bookingForm.controls['checkin'].errors.required">-->
+<!--        Begin Date is required.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label for="2">End Date:</label>-->
+<!--    <input id="2" type="date" formControlName="checkout" class="form-control">-->
+<!--    <div class="alert-danger" *ngIf="!bookingForm.controls['checkout'].valid && (bookingForm.controls['checkout'].touched)">-->
+<!--      <div [hidden]="!bookingForm.controls['checkout'].errors.required">-->
+<!--        End Date is required.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <label for="3">Children:</label>-->
+<!--    <input id="3" type="number"-->
+<!--           class="form-control" aria-describedby="Help" placeholder="Children" formControlName="children" required>-->
+<!--    <div class="alert-danger" *ngIf="!bookingForm.controls['children'].valid && (bookingForm.controls['children'].touched)">-->
+<!--      <div [hidden]="!bookingForm.controls['children'].errors.required">-->
+<!--        Children is required.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <small id="Help" class="form-text text-muted">Tối đa là: 3.</small>-->
+
+<!--    <label for="4">Guest:</label>-->
+<!--    <input id="4" type="number" formControlName="guest" aria-describedby="Help1" class="form-control">-->
+<!--    <div class="alert-danger" *ngIf="!bookingForm.controls['guest'].valid && (bookingForm.controls['guest'].touched)">-->
+<!--      <div [hidden]="!bookingForm.controls['guest'].errors.required">-->
+<!--        Guest is required.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <small id="Help1" class="form-text text-muted">Tối đa là: 3.</small>-->
+<!--    <button class="btn-primary">Book Now</button>-->
+<!--    <button  (click)="goBack()">go back</button>-->
+<!--  </form>-->
+<!--</div>-->
+
+<div id="booking" class="section">
+<div class="section-center">
+  <div class="container">
+    <div class="row">
+      <form class="booking-form" [formGroup]="bookingForm" (ngSubmit)="onSubmit(bookingForm.value)">
+        <div class="row no-margin">
+          <div class="col-md-3">
+            <div class="form-header">
+              <h2 class="text-center" style="padding-top: 20px">Book Now</h2>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="row no-margin">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <span class="form-label">Check In</span>
+                  <input class="form-control" formControlName="checkin" type="date">
+                </div>
+                <div class="alert-danger" *ngIf="!bookingForm.controls['checkin'].valid && (bookingForm.controls['checkin'].touched)">
+                        <div [hidden]="!bookingForm.controls['checkin'].errors.required">
+                          Begin Date is required.
+                        </div>
+                      </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <span class="form-label">Check out</span>
+                  <input class="form-control" formControlName="checkout" type="date">
+                </div>
+                <div class="alert-danger" *ngIf="!bookingForm.controls['checkout'].valid && (bookingForm.controls['checkout'].touched)">
+                        <div [hidden]="!bookingForm.controls['checkout'].errors.required">
+                          End Date is required.
+                        </div>
+                      </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <span class="form-label">Guest</span>
+                  <input class="form-control" formControlName="guest" type="text">
+                  <span class="select-arrow"></span>
+
+                </div>
+                <div class="alert-danger" *ngIf="!bookingForm.controls['guest'].valid && (bookingForm.controls['guest'].touched)">
+                  <div [hidden]="!bookingForm.controls['guest'].errors.required">
+                    Guest is required.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                  <span class="form-label">Chidren</span>
+                  <input class="form-control" formControlName="children" type="text">
+                  <span class="select-arrow"></span>
+                </div>
+                <div class="alert-danger" *ngIf="!bookingForm.controls['children'].valid && (bookingForm.controls['children'].touched)">
+                  <div [hidden]="!bookingForm.controls['children'].errors.required">
+                    Children is required.
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-btn">
+              <button class="submit-btn">Check availability</button>
+              <button  class="out-btn" (click)="goBack()">go back</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>

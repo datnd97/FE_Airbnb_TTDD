@@ -51,5 +51,6 @@ export class UserService {
   changePassword(password: Password): Observable<Password> {
     return this.http.post<Password>(API_URL + '/users/change-password', password);
   }
+
 }
 

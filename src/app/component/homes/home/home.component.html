@@ -5,7 +5,7 @@
     </div>
     <div  class="container">
       <div class="row pt-5 m-auto">
-        <div  *ngFor="let home of listHome | filter:searchText | paginate:{itemsPerPage: count, currentPage: p} " class="col-md-6 col-lg-4 pb-3">
+        <div  *ngFor="let home of listHome| filter:searchText | paginate:{itemsPerPage: count, currentPage: p} " class="col-md-6 col-lg-4 pb-3">
 
           <!-- Copy the content below until next comment -->
           <div   class="card card-custom bg-white border-white border-0">
@@ -19,7 +19,7 @@
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
               <a  routerLink="/homes/{{home.id}}" class="btn btn-primary">Option</a>
-              <a href="#" class="btn btn-outline-primary">Book now</a>
+              <a routerLink="/booking/{{home.id}}" class="btn btn-outline-primary">Book now</a>
             </div>
           </div>
         </div>

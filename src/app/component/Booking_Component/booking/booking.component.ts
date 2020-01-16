@@ -1,11 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Home} from '../../model/home/Home';
+import {Home} from '../../../model/home/Home';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {BookingService} from '../../service/booking.service';
+import {BookingService} from '../../../service/booking.service';
 declare var $: any;
 import {Location} from '@angular/common';
-import {Booking} from '../../model/home/Booking';
+import {Booking} from '../../../model/home/Booking';
 
 @Component({
   selector: 'app-booking',
@@ -51,8 +51,8 @@ export class BookingComponent implements OnInit {
     };
     this.bookingService.createBooking(this.id, booking).subscribe(result => {
       console.log('Thanh cong');
-      this.router.navigate(['']);
-  });
+      this.router.navigate(['/booking-user-list']);
+  }, error => alert(error));
 }
 
   onReset() {

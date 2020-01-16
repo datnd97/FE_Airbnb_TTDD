@@ -23,10 +23,13 @@ import {JwtInterceptor} from './model/user/jwt-interceptor';
 import {ErrorInterceptor} from './model/user/error-interceptor';
 import { ChangePasswordComponent } from './user/component/information/change-password/change-password.component';
 import { HomeStatusComponent } from './component/homes/home-status/home-status.component';
-import {BookingComponent} from './component/booking/booking.component';
+import {BookingComponent} from './component/Booking_Component/booking/booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from './component/carousel/carousel.component';
+import { CarouselComponent } from './component/homes/carousel/carousel.component';
 import { UserListComponent } from './user/component/user-list/user-list.component';
+import { BookingListByUserComponent } from './component/Booking_Component/booking-list-by-user/booking-list-by-user.component';
+import { BookingCancelComponent } from './component/Booking_Component/booking-cancel/booking-cancel.component';
+import { BookingListHiredHostComponent } from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { UserListComponent } from './user/component/user-list/user-list.componen
     BookingComponent,
     CarouselComponent,
     UserListComponent,
+    BookingListByUserComponent,
+    BookingCancelComponent,
+    BookingListHiredHostComponent,
 
   ],
   imports: [
