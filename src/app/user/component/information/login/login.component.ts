@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.log('data' + data);
+          console.log('data' + data.role + 'name' + data.name);
           sessionStorage.setItem('role', data.role);
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('id', data.id);

@@ -10,6 +10,8 @@ export const environment = {
   statusUrl: 'https://my-json-server.typicode.com/datnd97/Fake-Json/status/',
   userBookingUrl : 'http://localhost:8080/api/user/booking/',
   hostBookingUrl : 'http://localhost:8080/api/host/booking/',
+  uploadUrl: 'http://localhost:8080/api/host/',
+  hostHomeUrl: 'http://localhost:8080/api/host/',
   firebase: {
     apiKey: 'xxx',
     authDomain: 'gkz-angular-firebase.firebaseapp.com',

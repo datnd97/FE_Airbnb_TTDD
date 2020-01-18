@@ -15,10 +15,11 @@
             </div>
             <div  class="card-body" style="overflow-y: auto">
               <h4 class="card-title">{{home.name}}</h4>
+              <h4 class="card-title">{{home.price}}</h4>
               <p class="card-text">  {{home.description}} <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">Books</a> ngay nếu bạn thích.</p>
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
-              <a  routerLink="/homes/{{home.id}}" class="btn btn-primary">Option</a>
+              <a routerLink="/homes/{{home.id}}" class="btn btn-primary">Option</a>
               <a routerLink="/booking/{{home.id}}" class="btn btn-outline-primary">Book now</a>
             </div>
           </div>

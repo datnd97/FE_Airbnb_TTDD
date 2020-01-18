@@ -10,21 +10,25 @@ import {BookingReponse} from '../../../model/home/BookingReponse';
   styleUrls: ['./booking-cancel.component.css']
 })
 export class BookingCancelComponent implements OnInit {
+  constructor(private bookingService: BookingService) { }
   @Input() bookingId: number;
   @Output() valueChange = new EventEmitter<BookingReponse[]>();
-  constructor(private bookingService: BookingService) { }
   listBooking: any;
+  errorMgs: any;
+  msg: any;
   ngOnInit() {
   }
   onDelete() {
     if (confirm('Are you sure!!!')) {
       this.bookingService.deleteBookingByUser(this.bookingId).subscribe(
-        next => {
+        (result) => {
+          this.msg = result;
+          console.log(this.msg);
           this.onGetListBooking();
-          console.log('Da xoa thanh cong');
           // tslint:disable-next-line:no-shadowed-variable
         }, error => {
-          console.log(error);
+          this.errorMgs = error.error.message;
+          alert(this.errorMgs);
         }
       );
     }

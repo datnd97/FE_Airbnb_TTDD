@@ -30,6 +30,7 @@ import { UserListComponent } from './user/component/user-list/user-list.componen
 import { BookingListByUserComponent } from './component/Booking_Component/booking-list-by-user/booking-list-by-user.component';
 import { BookingCancelComponent } from './component/Booking_Component/booking-cancel/booking-cancel.component';
 import { BookingListHiredHostComponent } from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
+import { HomeUploadComponent } from './component/homes/home-upload/home-upload.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { BookingListHiredHostComponent } from './component/Booking_Component/boo
     BookingListByUserComponent,
     BookingCancelComponent,
     BookingListHiredHostComponent,
+    HomeUploadComponent,
 
   ],
   imports: [

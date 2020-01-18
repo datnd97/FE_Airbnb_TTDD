@@ -1,0 +1,36 @@
+
+
+<br>
+<div class="col-form-label" style=" font-weight: bolder; text-align: center">
+  <h1>New Images</h1>
+</div>
+
+<div class="center">
+<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+       aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+    {{progress.percentage}}%</div>
+</div>
+</div>
+<div class="center">
+<label class="btn btn-default">
+  <input type="file" multiple (change)="selectFile($event)">
+</label>
+
+<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+<br>
+<button class="button btn-info" *ngIf='showFile' (click)='showFiles(false)'>Hide Images</button>
+
+<button class="button btn-info" *ngIf='!showFile' (click)='showFiles(true)'>Show Images</button>
+
+<div [hidden]="!showFile">
+  <div class="panel panel-primary">
+    <div class="panel-heading">List of Images</div>
+    <div *ngFor="let file of fileUploads">
+      <div class="panel-body">
+        <img src="http://localhost:8080/file/{{file.name}}" style="max-width:350px" />
+      </div>
+    </div>
+  </div>
+</div>
+</div>

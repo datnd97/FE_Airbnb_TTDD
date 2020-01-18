@@ -36,6 +36,8 @@
       <button class="btn btn-danger"(click) = "deleteHome()">Delete</button>
       <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
       <a  routerLink="/booking/{{home.id}}" class="btn btn-primary btn-lg float-right">Book</a>
+      <a class="btn btn-primary btn-lg float-right" routerLink="/upload-image/{{home.id}}">Upload Image</a>
+
     </div>
 <!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>

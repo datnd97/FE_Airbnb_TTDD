@@ -11,6 +11,7 @@ import {HomeEditComponent} from './component/homes/home-edit/home-edit.component
 import {BookingComponent} from './component/Booking_Component/booking/booking.component';
 import {BookingListByUserComponent} from './component/Booking_Component/booking-list-by-user/booking-list-by-user.component';
 import {BookingListHiredHostComponent} from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
+import {HomeUploadComponent} from './component/homes/home-upload/home-upload.component';
 
 
 const routes: Routes = [
@@ -45,11 +46,15 @@ const routes: Routes = [
     path: 'booking-hired-list', component: BookingListHiredHostComponent
   },
   {
-    path: '', redirectTo: 'homes', pathMatch: 'full'
+    path: 'upload-image/:id', component: HomeUploadComponent
   },
-  {
-    path: '**', redirectTo: 'homes', pathMatch: 'full'
-  },
+  // {
+  //   path: '', redirectTo: 'homes', pathMatch: 'full'
+  // },
+  // {
+  //   path: '**', redirectTo: 'homes', pathMatch: 'full'
+  // },
+
 ];
 
 @NgModule({

@@ -32,15 +32,12 @@ export class UserService {
 
   isLogin() {
     if (sessionStorage.getItem('token') !== null) {
-      console.log('isLogin');
       return true;
     }
-    console.log('Not Islogin');
     return false;
   }
 
   getRole() {
-    console.log('role' + sessionStorage.getItem('role'));
     return sessionStorage.getItem('role');
   }
 
