@@ -25,13 +25,16 @@ import { ChangePasswordComponent } from './user/component/information/change-pas
 import { HomeStatusComponent } from './component/homes/home-status/home-status.component';
 import {BookingComponent} from './component/Booking_Component/booking/booking.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CarouselComponent } from './component/homes/carousel/carousel.component';
 import { UserListComponent } from './user/component/user-list/user-list.component';
 import { BookingListByUserComponent } from './component/Booking_Component/booking-list-by-user/booking-list-by-user.component';
 import { BookingCancelComponent } from './component/Booking_Component/booking-cancel/booking-cancel.component';
 import { BookingListHiredHostComponent } from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
 import { HomeUploadComponent } from './component/homes/home-upload/home-upload.component';
+import { HomeImagesComponent } from './component/homes/home-images/home-images.component';
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,12 +48,12 @@ import { HomeUploadComponent } from './component/homes/home-upload/home-upload.c
     RegisterComponent,
     ChangePasswordComponent,
     BookingComponent,
-    CarouselComponent,
     UserListComponent,
     BookingListByUserComponent,
     BookingCancelComponent,
     BookingListHiredHostComponent,
     HomeUploadComponent,
+    HomeImagesComponent,
 
   ],
   imports: [
@@ -72,5 +75,4 @@ import { HomeUploadComponent } from './component/homes/home-upload/home-upload.c
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

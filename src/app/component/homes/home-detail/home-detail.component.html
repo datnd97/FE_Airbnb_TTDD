@@ -1,11 +1,12 @@
+<app-home-images [home] = home></app-home-images>
 <div class="card" *ngIf="home" >
-  <app-carousel></app-carousel>
   <div class='card-header'>
     {{pageTitle+": "+home.name}}
   </div>
   <div class="card-body">
     <div class='row'>
       <div class='col-md-4'>
+
         <img class='center-block img-responsive'
              [style.width.px]='200'
              [src]='netImage'
@@ -37,7 +38,6 @@
       <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
       <a  routerLink="/booking/{{home.id}}" class="btn btn-primary btn-lg float-right">Book</a>
       <a class="btn btn-primary btn-lg float-right" routerLink="/upload-image/{{home.id}}">Upload Image</a>
-
     </div>
 <!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>
