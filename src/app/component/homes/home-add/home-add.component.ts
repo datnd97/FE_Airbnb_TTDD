@@ -21,7 +21,6 @@ export class HomeAddComponent implements OnInit {
               private typeRoomService: TypeRoomService,
               private formBuilder: FormBuilder,
               private router: Router,
-              // private fb: AngularFireDatabase
               ) { }
   get f() {
     return this.formHome.controls;
@@ -54,9 +53,11 @@ export class HomeAddComponent implements OnInit {
 
     });
     this.typeHomeService.getListTypeHome().subscribe(
-      result =>
-        this.typeHomeList = result,
-          error => console.log('Khong nhan duoc')
+      result =>{
+        this.typeHomeList = result;
+        console.log('>>>>order list:' + JSON.stringify(this.typeHomeList));
+      },
+          error => {alert('Fail'); }
     );
     this.typeRoomService.getListTypeRoom().subscribe(
       result => this.typeRoomList = result,
@@ -101,34 +102,6 @@ export class HomeAddComponent implements OnInit {
     );
   }
 
-  // uploadFile(event) {
-  //   this.arrayPicture = '';
-  //   console.log(event);
-  //   const file = event.target.files;
-  //   const metadata = {
-  //     contentType: 'image/jpeg',
-  //   };
-  //   let i = 0;
-  //   while ( i < file.length ) {
-  //     console.log('Outside ', i, file[i]);
-  //     // @ts-ignore
-  //     const uploadTask = firebase.storage().ref('img/' + file[i].name + Date.now()).put(file[i], metadata);
-  //     uploadTask.on(
-  //       firebase.storage.TaskEvent.STATE_CHANGED,
-  //       (snapshot) => {
-  //         const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-  //         console.log(snap);
-  //       },
-  //       (error) => {
-  //         console.log(error);
-  //       },
-  //       () => {
-  //         uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
-  //           this.arrayPicture += downloadURL + ' ';
-  //         });
-  //       });
-  //     i++;
-  //   }
-  // }
+
 
 }

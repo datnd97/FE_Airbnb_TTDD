@@ -23,20 +23,7 @@ export class HomeImagesComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    $(document).ready(function(){
-      $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-      });
 
-      $(".zoom").hover(function(){
-
-        $(this).addClass('transition');
-      }, function(){
-
-        $(this).removeClass('transition');
-      });
-    });
 
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {

@@ -15,7 +15,6 @@ export class HomeService {
 
   private HomeUrl = environment.homeUrl;
   private HostHomeUrl = environment.hostHomeUrl;
-  // listHome,getHome,getListImage
   constructor(private http: HttpClient) {}
   getListHome(): Observable<Home[]> {
     return this.http.get<Home[]>(this.HomeUrl);
@@ -23,7 +22,6 @@ export class HomeService {
   getHome(id: number): Observable<Home> {
     return this.http.get<Home>(this.HomeUrl + id);
   }
-  // getListiMAGE
   addHome(home: Home): Observable<Home> {
     return this.http.post<Home>(this.HostHomeUrl + 'create-home', home);
   }
@@ -40,21 +38,9 @@ export class HomeService {
     return this.http.post<any>(this.HostHomeUrl + id + '/create-image', formData);
   }
 
-  // public convertHouseList(): HouseConvert[] {
-  //   let houseList: HouseConvert[] = [];
-  //   let array: DataHouseList[] = [];
-  //   this.getList().subscribe(result => {
-  //     array = result.data;
-  //     // tslint:disable-next-line:prefer-for-of
-  //     for (let i = 0; i < array.length; i++) {
-  //       const arrayPicture = array[i].picture.split(' ');
-  //       const house = new HouseConvert(array[i].id, array[i].name, arrayPicture, array[i].address, array[i].price);
-  //
-  //       houseList.push(house);
-  //       console.log('>>>> ' + houseList);
-  //     }
-  //   });
-  //   return houseList;
-  // }
+  getListHomeByHost(): Observable<Home[]> {
+    return this.http.get<Home[]>(this.HostHomeUrl + 'list-home-by-host');
+  }
+
 
 }

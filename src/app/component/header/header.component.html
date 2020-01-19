@@ -16,7 +16,10 @@
           <a class="nav-link" routerLink="/create">Create</a>
         </li>
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
-          <a class="nav-link" routerLink="/booking-hired-list">Danh sách nhà đang được book</a>
+          <a class="nav-link" routerLink="/booking-hired-list">Manager Booking</a>
+        </li>
+        <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
+          <a class="nav-link" routerLink="/home-manager">Manager Home</a>
         </li>
         <li class="nav-item" *ngIf="userService.getRole() !== 'ROLE_ADMIN'">
           <a class="nav-link" href="#">Contact</a>

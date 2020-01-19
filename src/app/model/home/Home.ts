@@ -1,5 +1,6 @@
 import {TypeHome} from './TypeHome';
 import {TypeRoom} from './TypeRoom';
+import {User} from '../user/user';
 
 export class Home {
   id?: number;
@@ -13,4 +14,5 @@ export class Home {
   typeRoom?: TypeRoom;
   description?: string;
   status?: boolean;
+  userCreate?: User;
 }

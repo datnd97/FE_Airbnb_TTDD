@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Home} from "../../../model/home/Home";
-import {Observable} from "rxjs";
-import {TypeHome} from "../../../model/home/TypeHome";
-import {TypeRoom} from "../../../model/home/TypeRoom";
-import {TypeRoomService} from "../../../service/type-room.service";
-import {HomeService} from "../../../service/home.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Home} from '../../../model/home/Home';
+import {Observable} from 'rxjs';
+import {TypeHome} from '../../../model/home/TypeHome';
+import {TypeRoom} from '../../../model/home/TypeRoom';
+import {TypeRoomService} from '../../../service/type-room.service';
+import {HomeService} from '../../../service/home.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-status',
@@ -19,9 +19,9 @@ export class HomeStatusComponent implements OnInit {
   id: any;
   typeHomeId: any;
   typeHomeRoom: any;
-  typeHomeList: Observable<TypeHome[]>
-  typeRoomList: Observable<TypeRoom[]>
-  HomeList: Observable<Home[]>
+  typeHomeList: Observable<TypeHome[]>;
+  typeRoomList: Observable<TypeRoom[]>;
+  HomeList: Observable<Home[]>;
   constructor(private typeHomeService: TypeRoomService,
               private typeRoomService: TypeRoomService,
               private homeService: HomeService,

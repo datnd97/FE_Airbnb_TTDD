@@ -15,8 +15,8 @@ export class RegisterComponent implements OnInit {
   failMessage = '';
   roles: Role[] = [];
   registerForm: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(12)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(30)]),
     roleId: new FormControl('')

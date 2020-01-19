@@ -31,6 +31,7 @@ import { BookingCancelComponent } from './component/Booking_Component/booking-ca
 import { BookingListHiredHostComponent } from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
 import { HomeUploadComponent } from './component/homes/home-upload/home-upload.component';
 import { HomeImagesComponent } from './component/homes/home-images/home-images.component';
+import { HomeManagerHostComponent } from './component/homes/home-manager-host/home-manager-host.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -54,6 +55,7 @@ import { HomeImagesComponent } from './component/homes/home-images/home-images.c
     BookingListHiredHostComponent,
     HomeUploadComponent,
     HomeImagesComponent,
+    HomeManagerHostComponent,
 
   ],
   imports: [

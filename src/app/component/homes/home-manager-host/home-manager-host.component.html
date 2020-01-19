@@ -1,0 +1,41 @@
+<table *ngIf="homeList" class="table table-hover">
+  <thead>
+  <tr class="table-bordered table-primary"
+      style="text-align: center; font-weight: 900 ; color: red ; font-size: 16px">
+    <th scope="col">#ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Bedroom</th>
+    <th scope="col">Bathroom</th>
+    <th scope="col">Price</th>
+    <th scope="col">Type Home</th>
+    <th scope="col">Type Room</th>
+    <th scope="col">Description</th>
+    <th scope="col">Status</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr  *ngFor="let home of homeList"  class="table-bordered" style="text-align: center">
+    <th scope="row">{{home.id}}</th>
+    <th>{{home.name}}</th>
+    <th>{{home.address}}</th>
+    <th>{{home.bedroom}}</th>
+    <th>{{home.bathroom}}</th>
+    <th>{{home.price}}</th>
+    <th>{{home.typeHome.name}}</th>
+    <th>{{home.typeRoom.name}}</th>
+    <th>{{home.description}}</th>
+    <th>{{home.status}}</th>
+    <th>
+      <!--      <app-booking-cancel [bookingId]="bookingItem.id"-->
+      <!--                          (valueChange)="receiveBooking($event)"-->
+      <!--      ></app-booking-cancel>-->
+    </th>
+
+  </tr>
+
+
+  </tbody>
+</table>
+
