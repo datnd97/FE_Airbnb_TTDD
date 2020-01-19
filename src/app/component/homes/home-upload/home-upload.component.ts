@@ -35,13 +35,16 @@ export class HomeUploadComponent implements OnInit {
   }
 
   selectFile(event) {
-    const file = event.target.files.item(0);
-
-    if (file.type.match('image.*')) {
-      this.progress.percentage = 0;
-      this.selectedFiles = event.target.files;
-    } else {
-      alert('invalid format!');
+    const file = event.target.files;
+    this.selectedFiles = file;
+    for (let i = 0 ; i < this.selectedFiles.length ; i++) {
+      if (this.selectedFiles.item(i).type.match('image.*')) {
+        this.progress.percentage = 0;
+        // this.selectedFiles = event.target.files;
+      } else {
+        alert('invalid format!');
+        this.selectedFiles = undefined;
+      }
     }
   }
 
@@ -49,6 +52,7 @@ export class HomeUploadComponent implements OnInit {
     this.progress.percentage = 0;
     this.currentFileUpload = this.selectedFiles.item(0);
     for (let i = 0; i < this.selectedFiles.length; i++) {
+      this.formData = new FormData();
       this.formData.append('name', this.selectedFiles.item(i));
       this.completedCount++;
       this.total++;
