@@ -15,4 +15,5 @@ export class Home {
   description?: string;
   status?: boolean;
   userCreate?: User;
+  isBooking?: boolean;
 }

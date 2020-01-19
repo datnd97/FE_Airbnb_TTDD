@@ -27,6 +27,8 @@ export class HomeManagerHostComponent implements OnInit {
     this.homeService.getListHomeByHost().subscribe(
       result => {
         this.homeList = result;
+        console.log('>>>home list:' + JSON.stringify(this.homeList));
+
       },
       error => {
         alert('Error get Home list');

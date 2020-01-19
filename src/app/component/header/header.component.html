@@ -21,6 +21,9 @@
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
           <a class="nav-link" routerLink="/home-manager">Manager Home</a>
         </li>
+        <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_USER'">
+          <a class="nav-link" routerLink="/booking-user-list">User Booking</a>
+        </li>
         <li class="nav-item" *ngIf="userService.getRole() !== 'ROLE_ADMIN'">
           <a class="nav-link" href="#">Contact</a>
         </li>
