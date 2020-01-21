@@ -13,6 +13,7 @@
     <th scope="col">Description</th>
     <th scope="col">Status</th>
     <th scope="col">Book</th>
+    <th scope="col">Tính năng</th>
   </tr>
   </thead>
   <tbody>
@@ -30,9 +31,10 @@
     <th>{{home.status}}</th>
     <th>{{home.isBooking}}</th>
     <th>
-      <!--      <app-booking-cancel [bookingId]="bookingItem.id"-->
-      <!--                          (valueChange)="receiveBooking($event)"-->
-      <!--      ></app-booking-cancel>-->
+      <a routerLink="/edit/{{home.id}}" >Edit</a>|
+
+      <app-home-delete [home]="home"
+                       (valueChange)="receive($event)"></app-home-delete>
     </th>
 
   </tr>

@@ -14,7 +14,7 @@ import {TypeRoom} from '../../../model/home/TypeRoom';
   styleUrls: ['./home-edit.component.css']
 })
 export class HomeEditComponent implements OnInit {
-  home: Home;
+  @Input() home: Home;
   id: any;
   public homeForm: FormGroup;
   constructor(private router: Router,

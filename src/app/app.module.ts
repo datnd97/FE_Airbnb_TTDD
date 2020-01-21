@@ -32,6 +32,7 @@ import { BookingListHiredHostComponent } from './component/Booking_Component/boo
 import { HomeUploadComponent } from './component/homes/home-upload/home-upload.component';
 import { HomeImagesComponent } from './component/homes/home-images/home-images.component';
 import { HomeManagerHostComponent } from './component/homes/home-manager-host/home-manager-host.component';
+import { HomeDeleteComponent } from './component/homes/home-delete/home-delete.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -56,6 +57,7 @@ import { HomeManagerHostComponent } from './component/homes/home-manager-host/ho
     HomeUploadComponent,
     HomeImagesComponent,
     HomeManagerHostComponent,
+    HomeDeleteComponent,
 
   ],
   imports: [

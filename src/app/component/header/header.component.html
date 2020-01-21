@@ -12,14 +12,23 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item" *ngIf="userService.getRole() === 'ROLE_ADMIN'">
-          <a class="nav-link" routerLink="/create">Create</a>
+        <li class="nav-item dropdown" *ngIf="userService.isLogin()">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manager Home
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item" *ngIf="userService.getRole() === 'ROLE_ADMIN'">
+              <a class="dropdown-item" routerLink="/create">Create Home</a>
+            </li>
+          </ul>
         </li>
+
+
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
           <a class="nav-link" routerLink="/booking-hired-list">Manager Booking</a>
         </li>
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
-          <a class="nav-link" routerLink="/home-manager">Manager Home</a>
+          <a class="nav-link" routerLink="/home-manager">List Home</a>
         </li>
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_USER'">
           <a class="nav-link" routerLink="/booking-user-list">User Booking</a>
@@ -33,8 +42,15 @@
         <li class="nav-item" *ngIf="!userService.isLogin()">
           <a class="nav-link" routerLink="/home-login">Login</a>
         </li>
-        <li class="nav-item" *ngIf="userService.isLogin()">
-          <a class="nav-link" routerLink="#" (click)="logout()">Logout</a>
+        <li *ngIf="userService.isLogin()" >
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" routerLink="#" (click)="logout()">Logout</a>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
