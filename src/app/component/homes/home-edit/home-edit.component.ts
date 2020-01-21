@@ -7,6 +7,7 @@ import {TypeHomeService} from '../../../service/type-home.service';
 import {TypeRoomService} from '../../../service/type-room.service';
 import {TypeHome} from '../../../model/home/TypeHome';
 import {TypeRoom} from '../../../model/home/TypeRoom';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-home-edit',
@@ -22,7 +23,8 @@ export class HomeEditComponent implements OnInit {
               private fb: FormBuilder,
               private homeService: HomeService,
               private typeHomeService: TypeHomeService,
-              private typeRoomService: TypeRoomService) {
+              private typeRoomService: TypeRoomService,
+              private location: Location) {
     this.route.params.subscribe(
       result => {this.id = result.id; }
     );
@@ -97,5 +99,8 @@ export class HomeEditComponent implements OnInit {
       },
           error => console.log('That bat')
     );
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

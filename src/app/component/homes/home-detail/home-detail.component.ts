@@ -47,12 +47,6 @@ export class HomeDetailComponent implements OnInit {
   //   this.router.navigate(['/edit', this.home.id]);
   // }
 
-  // deleteHome() {
-  //   this.homeService.deleteHome(this.home.id).subscribe(
-  //     result => { alert('Delete Home Success'),
-  //       this.onBack();
-  //     }
-  //   );
-  // }
+
 
 }
