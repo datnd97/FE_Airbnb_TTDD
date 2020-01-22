@@ -12,6 +12,7 @@ import {query} from '@angular/animations';
 export class HomeDetailComponent implements OnInit {
 
   id: any;
+  role: string;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private homeService: HomeService) {
@@ -28,6 +29,7 @@ export class HomeDetailComponent implements OnInit {
     console.log( "Active:" + this.isActive);
   }
   ngOnInit() {
+    this.role = sessionStorage.getItem('role');
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
       const id = +param;

@@ -10,12 +10,17 @@ import {BookingService} from '../../../service/booking.service';
 })
 export class BookingListHiredHostComponent implements OnInit {
   bookingList: any;
-
+  role = '';
+  token = '';
+  name = '';
   constructor(private bookingService: BookingService) {
   }
 
   ngOnInit() {
     this.getListHireBooking();
+    this.role = sessionStorage.getItem('role');
+    this.token = sessionStorage.getItem('token');
+    this.name = sessionStorage.getItem('name');
   }
 
   getListHireBooking() {

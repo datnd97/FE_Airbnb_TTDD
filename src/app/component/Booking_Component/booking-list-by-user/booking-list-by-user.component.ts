@@ -11,8 +11,14 @@ import {Home} from '../../../model/home/Home';
 })
 export class BookingListByUserComponent implements OnInit {
   bookingList: any;
+  name: string;
+  role: string;
+  token: string;
   constructor(private bookingService: BookingService) { }
   ngOnInit() {
+    this.role = sessionStorage.getItem('role');
+    this.token = sessionStorage.getItem('token');
+    this.name = sessionStorage.getItem('name');
     this.getListBooking();
   }
   getListBooking() {

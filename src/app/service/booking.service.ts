@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from "rxjs";
 import {Booking} from "../model/home/Booking";
 import {ListBooking} from '../model/home/ListBooking';
@@ -15,10 +15,16 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   getListBookingByUser(): Observable<BookingReponse> {
-    return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + sessionStorage.getItem('token')
+    });
+    return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user',  {headers});
   }
   getListBookingByHost(): Observable<BookingReponse> {
-    return this.http.get<BookingReponse>(this.hostBookingUrl + 'list-booking-host');
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + sessionStorage.getItem('token')
+    });
+    return this.http.get<BookingReponse>(this.hostBookingUrl + 'list-booking-host', {headers});
   }
   getBooking(id: number): Observable<Booking> {
     return this.http.get<Booking>(this.hostBookingUrl + id);
@@ -27,7 +33,11 @@ export class BookingService {
     return this.http.delete<void>(this.hostBookingUrl + id);
   }
   deleteBookingByUser(id: number): Observable<void> {
-    return this.http.delete<void>(this.userBookingUrl + id);
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + sessionStorage.getItem('token')
+    });
+    return this.http.delete<void>(this.userBookingUrl + id, {headers});
+
   }
   createBooking(id: number, booking: Booking): Observable<Booking> {
     return this.http.post<Booking>(this.userBookingUrl + 'create/' + id, booking);

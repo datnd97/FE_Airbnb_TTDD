@@ -35,9 +35,14 @@
     <div class="panel-footer">
 <!--      <button class="btn btn-primary"(click)="editHome()">Edit</button>-->
 <!--      <button class="btn btn-danger"(click) = "deleteHome()">Delete</button>-->
+      <div *ngIf="role == 'ROLE_ADMIN'">
       <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
+      </div>
+      <div *ngIf="role == 'ROLE_ADMIN'">
+        <a class="btn btn-primary btn-lg float-right" routerLink="/upload-image/{{home.id}}">Upload Image</a>
+
+      </div>
       <a  routerLink="/booking/{{home.id}}" class="btn btn-primary btn-lg float-right">Book</a>
-      <a class="btn btn-primary btn-lg float-right" routerLink="/upload-image/{{home.id}}">Upload Image</a>
     </div>
 <!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>

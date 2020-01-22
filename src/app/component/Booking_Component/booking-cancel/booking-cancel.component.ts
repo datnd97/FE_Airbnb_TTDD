@@ -16,7 +16,13 @@ export class BookingCancelComponent implements OnInit {
   listBooking: any;
   errorMgs: any;
   msg: any;
+  role: string;
+  token: string;
+  name: string;
   ngOnInit() {
+    this.role = sessionStorage.getItem('role');
+    this.token = sessionStorage.getItem('token');
+    this.name = sessionStorage.getItem('name');
   }
   onDelete() {
     if (confirm('Are you sure!!!')) {

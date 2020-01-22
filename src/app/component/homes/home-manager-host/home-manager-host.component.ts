@@ -53,11 +53,6 @@ export class HomeManagerHostComponent implements OnInit {
   onBack() {
     this.router.navigate(['/homes']);
   }
-
-  onDelete() {
-
-  }
-
   receive(list: Home[]) {
     this.homeList = list;
   }

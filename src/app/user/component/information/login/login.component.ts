@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem('role', data.role);
           sessionStorage.setItem('token', data.token);
           sessionStorage.setItem('id', data.id);
+          sessionStorage.setItem('name', data.name);
           this.router.navigate(['homes']);
         },
         error => {

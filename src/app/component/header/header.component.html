@@ -12,7 +12,7 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item dropdown" *ngIf="userService.isLogin()">
+        <li class="nav-item dropdown" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Manager Home
           </a>
@@ -22,7 +22,6 @@
             </li>
           </ul>
         </li>
-
 
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
           <a class="nav-link" routerLink="/booking-hired-list">Manager Booking</a>
@@ -44,8 +43,11 @@
         </li>
         <li *ngIf="userService.isLogin()" >
           <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              User
+            <button *ngIf="userService.getRole() == 'ROLE_ADMIN'" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Admin
+            </button>
+            <button *ngIf="userService.getRole() == 'ROLE_USER'" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              USER
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" routerLink="#" (click)="logout()">Logout</a>
