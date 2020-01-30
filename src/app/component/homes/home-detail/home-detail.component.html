@@ -1,54 +1,70 @@
-<app-home-images [home] = home></app-home-images>
-<div class="card" *ngIf="home" >
-  <div class='card-header'>
-    {{pageTitle+": "+home.name}}
-  </div>
-  <div class="card-body">
-    <div class='row'>
-      <div class='col-md-4'>
+<div *ngIf="home">
+<div class="container">
 
-        <img class='center-block img-responsive'
-             [style.width.px]='200'
-             [src]='netImage'
-             [title]='home.name'>
-      </div>
-      <div class="col-md-8">
-        <h5 class="card-title">{{home.name}}</h5>
-        <p class="card-text">{{home.description}}</p>
-        <ul class="list-group" *ngIf="home">
-          <li class="list-group-item"><b>Type-Home#:</b> {{home.typeHome.name | lowercase }}</li>
-          <li class="list-group-item"><b>Type-Room:</b> {{home.typeRoom.name}}</li>
-          <li class="list-group-item"><b>Price:</b> {{home.price|currency:'USD':'symbol'}}</li>
-          <li class="list-group-item"><b>Bathroom:</b> {{home.bathroom}}</li>
-          <li class="list-group-item"><b>Bedroom:</b> {{home.bedroom}}</li>
-          <li class="list-group-item"><b>Address:</b> {{home.address}}</li>
-                    <li  class="list-group-item">
-                      <div [hidden]="isActive"><b>Status:</b> Empty</div>
-                      <div [hidden]="!isActive"><b>Status:</b> Full</div>
-                       &nbsp;
-                    </li>
-<!--              <app-home-status [status] = "selectStatus" ></app-home-status>-->
-<!--          </li>-->
-        </ul>
+  <div class="card">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+          <div *ngIf="role == 'ROLE_ADMIN'">
+            <a class="btn btn-primary btn-lg " routerLink="/upload-image/{{home.id}}">Upload Image</a>
+          </div>
+          <app-home-images [home] = home></app-home-images>
+        </div>
+        <div class="details col-md-6">
+          <h3 class="product-title"> {{home.name}} </h3>
+          <div class="rating">
+            <div class="stars">
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <span class="review-no">41 reviews</span>
+          </div>
+          <p class="product-description">{{home.description}}</p>
+          <h4 class="price">current price: <span>{{home.price|currency:'USD':'symbol'}}</span></h4>
+          <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+          <h5 class="sizes">Type-Home:
+            <span class="size" data-toggle="tooltip" title="small">{{home.typeHome.name | lowercase}}</span>
+          </h5>
+          <h5 class="sizes">Type-Room:
+            <span class="size" data-toggle="tooltip" title="small">{{home.typeRoom.name | lowercase}}</span>
+          </h5>
+
+          <h5 class="colors">Creator:
+<!--            <span class="color orange not-available" data-toggle="tooltip" title="Not In store">A</span>-->
+            <span class="orange size-magrin"> {{home.user.username}}</span>
+<!--            <span class="color blue"></span>-->
+
+          </h5>
+          <ul class="list-group" *ngIf="home">
+            <li class="list-group-item"><b>Bathroom:</b> {{home.bathroom}}</li>
+            <li class="list-group-item"><b>Bedroom:</b> {{home.bedroom}}</li>
+            <li class="list-group-item"><b>Address:</b> {{home.address}}</li>
+            <li  class="list-group-item">
+              <div [hidden]="isActive"><b>Status:</b> Empty</div>
+              <div [hidden]="!isActive"><b>Status:</b> Full</div>
+              &nbsp;
+              <div *ngIf="role == 'ROLE_ADMIN'">
+                <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="action" *ngIf="role == 'ROLE_USER'">
+            <a routerLink="/booking/{{home.id}}"  class="add-to-cart btn btn-default" type="button">Booking</a>
+            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="panel-footer">
-<!--      <button class="btn btn-primary"(click)="editHome()">Edit</button>-->
-<!--      <button class="btn btn-danger"(click) = "deleteHome()">Delete</button>-->
-      <div *ngIf="role == 'ROLE_ADMIN'">
-      <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
-      </div>
-      <div *ngIf="role == 'ROLE_ADMIN'">
-        <a class="btn btn-primary btn-lg float-right" routerLink="/upload-image/{{home.id}}">Upload Image</a>
-
-      </div>
-      <a  routerLink="/booking/{{home.id}}" class="btn btn-primary btn-lg float-right">Book</a>
-    </div>
-<!--    <app-home-edit [home] = selectHome></app-home-edit>-->
   </div>
-  <div class='card-footer'>
-    <button class='btn btn-outline-secondary' (click)='onBack()'>
-      <i class='fa fa-chevron-left'></i> Back
-    </button>
-  </div>
+</div>
+<div class='card-footer'>
+  <button class='btn btn-outline-secondary' (click)='onBack()'>
+    <i class='fa fa-chevron-left'></i> Back
+  </button>
+</div>
 </div>

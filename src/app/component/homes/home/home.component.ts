@@ -12,13 +12,25 @@ export class HomeComponent implements OnInit {
   count = 4;
   searchText;
   listHome: any ;
-  selectedHome: Home;
+  private info: any;
+  role: any;
+  token: any;
+  name: any;
+
   constructor(private homeService: HomeService,
   ) { }
 
   ngOnInit() {
     this.getListHome();
-  }
+    // this.info = {
+    //   userId: sessionStorage.getItem('id'),
+    //   role : sessionStorage.getItem('role'),
+    //   token : sessionStorage.getItem('token'),
+    //   name : sessionStorage.getItem('name')
+    // };
+    this.role = sessionStorage.getItem('role');
+    this.token = sessionStorage.getItem('token');
+    this.name = sessionStorage.getItem('name');  }
   getListHome() {
     this.homeService.getListHome().subscribe(
       result => {

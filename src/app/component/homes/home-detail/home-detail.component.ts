@@ -3,6 +3,7 @@ import {Home} from '../../../model/home/Home';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HomeService} from '../../../service/home.service';
 import {query} from '@angular/animations';
+import {User} from '../../../model/user/user';
 
 @Component({
   selector: 'app-home-detail',

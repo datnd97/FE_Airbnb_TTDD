@@ -21,7 +21,8 @@
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
               <a routerLink="/homes/{{home.id}}" class="btn btn-primary">Option</a>
-              <a routerLink="/booking/{{home.id}}" class="btn btn-outline-primary">Book now</a>
+
+              <a *ngIf="this.role == 'ROLE_USER'" routerLink="/booking/{{home.id}}" class="btn btn-outline-primary">Book now</a>
             </div>
             </div>
         </div>

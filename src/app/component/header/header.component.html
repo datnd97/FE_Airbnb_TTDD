@@ -20,15 +20,18 @@
             <li class="nav-item" *ngIf="userService.getRole() === 'ROLE_ADMIN'">
               <a class="dropdown-item" routerLink="/create">Create Home</a>
             </li>
+            <li class="nav-item" *ngIf="userService.getRole() === 'ROLE_ADMIN'">
+
+              <a class="dropdown-item"  routerLink="/home-manager">List Home</a>
+            </li>
+
           </ul>
         </li>
 
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
           <a class="nav-link" routerLink="/booking-hired-list">Manager Booking</a>
         </li>
-        <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_ADMIN'">
-          <a class="nav-link" routerLink="/home-manager">List Home</a>
-        </li>
+
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_USER'">
           <a class="nav-link" routerLink="/booking-user-list">User Booking</a>
         </li>
