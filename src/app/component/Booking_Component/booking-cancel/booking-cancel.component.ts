@@ -25,6 +25,7 @@ export class BookingCancelComponent implements OnInit {
     this.name = sessionStorage.getItem('name');
   }
   onDelete() {
+    console.log(this.bookingId);
     if (confirm('Are you sure!!!')) {
       this.bookingService.deleteBookingByUser(this.bookingId).subscribe(
         (result) => {
