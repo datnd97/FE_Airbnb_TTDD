@@ -36,7 +36,7 @@ export class BookingService {
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + sessionStorage.getItem('token')
     });
-    return this.http.put<void>(this.userBookingUrl + id, {headers});
+    return this.http.delete<void>(this.userBookingUrl + id, {headers});
 
   }
   createBooking(id: number, booking: Booking): Observable<Booking> {
