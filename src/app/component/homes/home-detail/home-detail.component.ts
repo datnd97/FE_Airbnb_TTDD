@@ -14,6 +14,7 @@ export class HomeDetailComponent implements OnInit {
 
   id: any;
   role: string;
+  userId: string;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private homeService: HomeService) {
@@ -22,6 +23,7 @@ export class HomeDetailComponent implements OnInit {
     );
   }
   home: Home;
+
   pageTitle = 'Home Detail';
   netImage: any = '../assets/img/house.jpg';
   isActive = false;
@@ -31,6 +33,7 @@ export class HomeDetailComponent implements OnInit {
   }
   ngOnInit() {
     this.role = sessionStorage.getItem('role');
+    this.userId = sessionStorage.getItem('id');
     const param = this.route.snapshot.paramMap.get('id');
     if (param) {
       const id = +param;

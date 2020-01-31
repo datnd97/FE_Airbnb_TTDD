@@ -5,7 +5,7 @@
     <div class="container-fliud">
       <div class="wrapper row">
         <div class="preview col-md-6">
-          <div *ngIf="role == 'ROLE_ADMIN'">
+          <div *ngIf="role == 'ROLE_ADMIN' && this.userId == this.home.user.id">
             <a class="btn btn-primary btn-lg " routerLink="/upload-image/{{home.id}}">Upload Image</a>
           </div>
           <app-home-images [home] = home></app-home-images>
@@ -46,7 +46,7 @@
               <div [hidden]="isActive"><b>Status:</b> Empty</div>
               <div [hidden]="!isActive"><b>Status:</b> Full</div>
               &nbsp;
-              <div *ngIf="role == 'ROLE_ADMIN'">
+              <div *ngIf="role == 'ROLE_ADMIN' && this.userId == this.home.user.id">
                 <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
               </div>
 

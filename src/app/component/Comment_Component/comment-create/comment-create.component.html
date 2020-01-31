@@ -7,13 +7,13 @@
       <div class="form-group">
         <textarea class="form-control" formControlName="commentInput" rows="3"></textarea>
       </div>
-      <button type="submit" (click)="createComment()" class="btn btn-primary">Submit</button>
+      <button [disabled]="!this.token"  type="submit" (click)="createComment()" class="btn btn-primary">Submit</button>
       <div>
         <div *ngIf="this.token ; else other" class="text-right">
         </div>
         <ng-template #other>
           <div class="text-center text-secondary">
-            <h6>You need login before can be comment. <a [routerLink]="'/login'">Login!</a></h6>
+            <h6>You need login before can be comment. <a [routerLink]="'/home-login'">Login!</a></h6>
           </div>
         </ng-template>
       </div>
