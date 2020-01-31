@@ -5,12 +5,11 @@
   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
 
   <div class="media-body">
-    <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}}</h6></label>
+    <label class="text-success">@{{comment.user.name}}</label>
     <p>
       {{comment.content}}
     </p>
     <div class="text-left" *ngIf="this.roleId == comment.user.id">
-      <!--              edit/delete-->
       <a #closeModalRef class="btn btn-primary a-btn-slide-text" data-toggle="collapse"
          [attr.data-target]="'#collapseExample' + i" aria-expanded="false">
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -24,13 +23,13 @@
       <div class="collapse" [id]="'collapseExample'+i">
         <form>
           <div class="card card-body">
-<!--              <textarea contenteditable="true" [formControl]="commentUpdate" [value]="comment.comment"-->
-<!--                        rows="3"></textarea>-->
+              <textarea contenteditable="true" [formControl]="commentUpdate" [value]="comment.content"
+                        rows="3"></textarea>
             <br/>
             <div class="text-right">
-<!--              <button class="btn btn-outline-secondary" (click)="closeForm(closeModalRef)">Close</button>&nbsp;&nbsp;-->
-<!--              <button class="btn btn-outline-primary" (click)="updateComment(comment.id,closeModalRef)">Update-->
-<!--              </button>-->
+              <button class="btn btn-outline-secondary" (click)="closeForm(closeModalRef)">Close</button>&nbsp;&nbsp;
+              <button class="btn btn-outline-primary" (click)="updateComment(comment.id,closeModalRef)">Update
+              </button>
             </div>
           </div>
         </form>

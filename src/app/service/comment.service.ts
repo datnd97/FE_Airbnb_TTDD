@@ -18,5 +18,8 @@ export class CommentService {
   deleteCommentById(id: number): Observable<void> {
     return this.http.delete<void>('http://localhost:8080/api/comment/' + id);
   }
+  updateComment(comment: Comment): Observable<Comment> {
+    return this.http.put<Comment>('http://localhost:8080/api/comment/' + comment.id, comment);
+  }
 
 }

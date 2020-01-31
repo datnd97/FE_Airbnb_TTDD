@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CommentService} from '../../../service/comment.service';
 import {Comment} from '../../../model/home/Comment';
 import {Home} from '../../../model/home/Home';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-comment',
@@ -16,6 +17,7 @@ export class CommentComponent implements OnInit {
   token: string;
   roleId: string;
   idComment: number;
+  commentUpdate = new FormControl();
   constructor(private commentService: CommentService) { }
   ngOnInit() {
     this.getAllComment();
@@ -47,4 +49,23 @@ export class CommentComponent implements OnInit {
     });
   }
 
+  closeForm(closeModalRef: HTMLAnchorElement) {
+    closeModalRef.click();
+    this.getAllComment();
+    this.commentUpdate.reset();
+  }
+
+  updateComment(commentId: number, closeModalRef: HTMLAnchorElement) {
+    if (this.commentUpdate.value == null) {
+      return this.closeForm(closeModalRef);
+    }
+    const comment: Comment = {
+      id: commentId,
+      content: this.commentUpdate.value
+    };
+    this.commentService.updateComment(comment).subscribe(
+      result => {this.closeForm(closeModalRef); }
+      // tslint:disable-next-line:no-unused-expression
+    ), fail => {console.log(fail); };
+  }
 }
