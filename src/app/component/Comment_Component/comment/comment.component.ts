@@ -3,6 +3,7 @@ import {CommentService} from '../../../service/comment.service';
 import {Comment} from '../../../model/home/Comment';
 import {Home} from '../../../model/home/Home';
 import {FormControl} from '@angular/forms';
+import {BookingReponse} from '../../../model/home/BookingReponse';
 
 @Component({
   selector: 'app-comment',
@@ -11,7 +12,7 @@ import {FormControl} from '@angular/forms';
 })
 export class CommentComponent implements OnInit {
   @Input() home: Home;
-  commentList: Comment;
+  commentList: any;
   name: string;
   role: string;
   token: string;
@@ -67,5 +68,9 @@ export class CommentComponent implements OnInit {
       result => {this.closeForm(closeModalRef); }
       // tslint:disable-next-line:no-unused-expression
     ), fail => {console.log(fail); };
+  }
+
+  receiveComment(listComment: Comment[]) {
+    this.commentList = listComment;
   }
 }

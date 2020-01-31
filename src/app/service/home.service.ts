@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Home} from '../model/home/Home';
-import {Image} from '../model/Image';
+import {Image} from '../model/home/Image';
 // import {realpath} from 'fs';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

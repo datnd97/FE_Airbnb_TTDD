@@ -1,13 +1,22 @@
-<div class="container">
-  <div class="form-group">
-    <!--    <form [formGroup]="commentForm" (ngSubmit)="onCreateComment()">-->
-    <div>
-      <label>Comment:</label>
-      <textarea type="text"
-                class="form-control" rows="5"
-      ></textarea>
-      <button class="btn btn-primary">Submit</button>
-      <!--    </form>-->
-    </div>
+
+<!-- Comments Form -->
+<div class="card my-4">
+  <h5 class="card-header">Leave a Comment:</h5>
+  <div class="card-body">
+    <form [formGroup]="formCommentCreate">
+      <div class="form-group">
+        <textarea class="form-control" formControlName="commentInput" rows="3"></textarea>
+      </div>
+      <button type="submit" (click)="createComment()" class="btn btn-primary">Submit</button>
+      <div>
+        <div *ngIf="this.token ; else other" class="text-right">
+        </div>
+        <ng-template #other>
+          <div class="text-center text-secondary">
+            <h6>You need login before can be comment. <a [routerLink]="'/login'">Login!</a></h6>
+          </div>
+        </ng-template>
+      </div>
+    </form>
   </div>
 </div>

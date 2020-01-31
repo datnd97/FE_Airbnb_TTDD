@@ -4,7 +4,7 @@ import {TypeHome} from '../model/home/TypeHome';
 import {HttpClient} from '@angular/common/http';
 import {TypeRoom} from '../model/home/TypeRoom';
 import {environment} from '../../environments/environment';
-import {Image} from '../model/Image';
+import {Image} from '../model/home/Image';
 
 @Injectable({
   providedIn: 'root'

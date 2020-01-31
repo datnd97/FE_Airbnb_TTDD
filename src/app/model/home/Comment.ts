@@ -4,6 +4,7 @@ import {Home} from './Home';
 export interface Comment {
   id: number;
   content: string;
-  user: User;
-  home: Home;
+  home?: Home;
+  idHome?: number;
+  user?: any;
 }

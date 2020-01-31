@@ -1,6 +1,8 @@
 <div *ngIf="commentList == null">
   <p>#Chưa có bình luận nào!!!</p>
 </div>
+<app-comment-create [home] = home (valueChange)="receiveComment($event)"></app-comment-create>
+
 <div class="media mb-4" *ngFor="let comment of commentList , index as i">
   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
 
