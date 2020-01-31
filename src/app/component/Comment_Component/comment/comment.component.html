@@ -1,5 +1,9 @@
+<div *ngIf="commentList == null">
+  <p>#Chưa có bình luận nào!!!</p>
+</div>
 <div class="media mb-4" *ngFor="let comment of commentList , index as i">
   <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+
   <div class="media-body">
     <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}}</h6></label>
     <p>
