@@ -36,10 +36,10 @@ export class CommentComponent implements OnInit {
   }
   getIdComment(id: number) {
     this.idComment = id;
-    alert(this.idComment);
   }
   deleteComment(closeModalRef2: HTMLButtonElement) {
-    this.commentService.deleteComment(this.idComment).subscribe(result => {
+    console.log('Da vao');
+    this.commentService.deleteCommentById(this.idComment).subscribe(result => {
       this.getAllComment();
       closeModalRef2.click();
     }, error => {

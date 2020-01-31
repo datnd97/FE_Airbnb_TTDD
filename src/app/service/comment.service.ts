@@ -15,7 +15,8 @@ export class CommentService {
   createComment(comment: Comment, id: number): Observable<Comment> {
     return this.http.post<Comment>('http://localhost:8080/api/comment/' + id, comment);
   }
-  deleteComment(id: number): Observable<void> {
+  deleteCommentById(id: number): Observable<void> {
     return this.http.delete<void>('http://localhost:8080/api/comment/' + id);
   }
+
 }
