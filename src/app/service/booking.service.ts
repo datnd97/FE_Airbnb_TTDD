@@ -15,10 +15,11 @@ export class BookingService {
   constructor(private http: HttpClient) { }
 
   getListBookingByUser(): Observable<BookingReponse> {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + sessionStorage.getItem('token')
-    });
-    return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user',  {headers});
+    // const headers = new HttpHeaders({
+    //   Authorization: 'Bearer ' + sessionStorage.getItem('token')
+    // });
+    // return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user',  {headers});
+    return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user');
   }
   getListBookingByHost(): Observable<BookingReponse> {
     const headers = new HttpHeaders({

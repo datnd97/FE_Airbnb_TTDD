@@ -14,6 +14,6 @@ export class Home {
   typeRoom?: TypeRoom;
   description?: string;
   status?: boolean;
-  user: User;
+  user: any;
   isBooking?: boolean;
 }

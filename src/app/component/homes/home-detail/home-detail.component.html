@@ -49,10 +49,9 @@
               <div *ngIf="role == 'ROLE_ADMIN'">
                 <app-home-status [home]=home (notify)=" changeActive($event)"></app-home-status>
               </div>
+
             </li>
-
           </ul>
-
           <div class="action" *ngIf="role == 'ROLE_USER'">
             <a routerLink="/booking/{{home.id}}"  class="add-to-cart btn btn-default" type="button">Booking</a>
             <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
@@ -62,6 +61,10 @@
     </div>
   </div>
 </div>
+  <<div class="container">
+  <h1>Comment:</h1>
+    <app-comment [home]="home" ></app-comment>
+  </div>
 <div class='card-footer'>
   <button class='btn btn-outline-secondary' (click)='onBack()'>
     <i class='fa fa-chevron-left'></i> Back

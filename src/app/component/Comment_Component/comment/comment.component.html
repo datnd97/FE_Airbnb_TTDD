@@ -1,0 +1,57 @@
+<div class="media mb-4" *ngFor="let comment of commentList , index as i">
+  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+  <div class="media-body">
+    <label class="text-success">@{{comment.user.name}}<h6 class="text-secondary">{{comment.date}}</h6></label>
+    <p>
+      {{comment.content}}
+    </p>
+    <div class="text-left" *ngIf="this.roleId == comment.user.id">
+      <!--              edit/delete-->
+      <a #closeModalRef class="btn btn-primary a-btn-slide-text" data-toggle="collapse"
+         [attr.data-target]="'#collapseExample' + i" aria-expanded="false">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong class="pointer">Edit</strong></span>
+      </a>
+      <a (click)="getIdComment(comment.id)" class="btn btn-warning a-btn-slide-text" data-toggle="modal"
+         data-target="#exampleModalCenter">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong class="pointer">Delete</strong></span>
+      </a>
+      <div class="collapse" [id]="'collapseExample'+i">
+        <form>
+          <div class="card card-body">
+<!--              <textarea contenteditable="true" [formControl]="commentUpdate" [value]="comment.comment"-->
+<!--                        rows="3"></textarea>-->
+            <br/>
+            <div class="text-right">
+<!--              <button class="btn btn-outline-secondary" (click)="closeForm(closeModalRef)">Close</button>&nbsp;&nbsp;-->
+<!--              <button class="btn btn-outline-primary" (click)="updateComment(comment.id,closeModalRef)">Update-->
+<!--              </button>-->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="exampleModalCenterTitle">Delete Comment!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-dark text-center">
+          <h5>Are you sure?</h5>
+        </div>
+        <div class="modal-footer">
+          <button #closeModalRef2 type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger" (click)="deleteComment(closeModalRef2)">Accept</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

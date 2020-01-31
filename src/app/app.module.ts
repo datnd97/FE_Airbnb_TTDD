@@ -33,6 +33,8 @@ import { HomeUploadComponent } from './component/homes/home-upload/home-upload.c
 import { HomeImagesComponent } from './component/homes/home-images/home-images.component';
 import { HomeManagerHostComponent } from './component/homes/home-manager-host/home-manager-host.component';
 import { HomeDeleteComponent } from './component/homes/home-delete/home-delete.component';
+import { CommentComponent } from './component/Comment_Component/comment/comment.component';
+import { CommentCreateComponent } from './component/Comment_Component/comment-create/comment-create.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -58,6 +60,8 @@ import { HomeDeleteComponent } from './component/homes/home-delete/home-delete.c
     HomeImagesComponent,
     HomeManagerHostComponent,
     HomeDeleteComponent,
+    CommentComponent,
+    CommentCreateComponent,
 
   ],
   imports: [

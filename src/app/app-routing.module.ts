@@ -13,6 +13,7 @@ import {BookingListByUserComponent} from './component/Booking_Component/booking-
 import {BookingListHiredHostComponent} from './component/Booking_Component/booking-list-hired-host/booking-list-hired-host.component';
 import {HomeUploadComponent} from './component/homes/home-upload/home-upload.component';
 import {HomeManagerHostComponent} from './component/homes/home-manager-host/home-manager-host.component';
+import {CommentComponent} from './component/Comment_Component/comment/comment.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,9 @@ const routes: Routes = [
   },
   {
     path: 'home-manager', component: HomeManagerHostComponent
+  },
+  {
+    path: 'comment', component: CommentComponent
   }
   // {
   //   path: '', redirectTo: 'homes', pathMatch: 'full'
