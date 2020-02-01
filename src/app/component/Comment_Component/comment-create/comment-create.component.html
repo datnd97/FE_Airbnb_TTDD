@@ -7,7 +7,7 @@
       <div class="form-group">
         <textarea class="form-control" formControlName="commentInput" rows="3"></textarea>
       </div>
-      <button [disabled]="!this.token"  type="submit" (click)="createComment()" class="btn btn-primary">Submit</button>
+      <button [disabled]="!this.token || this.role == 'ROLE_ADMIN'"  type="submit" (click)="createComment()" class="btn btn-primary">Submit</button>
       <div>
         <div *ngIf="this.token ; else other" class="text-right">
         </div>

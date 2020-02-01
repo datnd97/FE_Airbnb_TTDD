@@ -252,6 +252,16 @@ input[type="file"]{
   cursor: pointer;
 }
 .custom-input-file:hover .uploadPhoto { display: block; }
-.size-magrin{
-
+.out-btn{
+  display: inline-block;
+  color: #fff;
+  background-color: #47ccb0;
+  font-weight: 700;
+  padding: 10px 10px;
+  border-radius: 4px;
+  border: none;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+  float: left;
+  margin-top: 20px;
 }

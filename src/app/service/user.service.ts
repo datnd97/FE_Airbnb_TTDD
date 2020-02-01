@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Role} from '../model/user/role';
 import {Password} from '../model/user/password';
+import {Home} from '../model/home/Home';
 
 
 const API_URL = `${environment.apiUrl}`;
@@ -48,6 +49,8 @@ export class UserService {
   changePassword(password: Password): Observable<Password> {
     return this.http.post<Password>(API_URL + '/users/change-password', password);
   }
-
+  getUser(id: string): Observable<User> {
+    return this.http.get<User>(API_URL + '/users/' + id);
+  }
 }
 

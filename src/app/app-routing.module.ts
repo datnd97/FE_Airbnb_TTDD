@@ -14,6 +14,7 @@ import {BookingListHiredHostComponent} from './component/Booking_Component/booki
 import {HomeUploadComponent} from './component/homes/home-upload/home-upload.component';
 import {HomeManagerHostComponent} from './component/homes/home-manager-host/home-manager-host.component';
 import {CommentComponent} from './component/Comment_Component/comment/comment.component';
+import {ProfileComponent} from './user/component/profile/profile.component';
 
 
 const routes: Routes = [
@@ -55,6 +56,9 @@ const routes: Routes = [
   },
   {
     path: 'comment', component: CommentComponent
+  },
+  {
+    path: 'profile', component: ProfileComponent
   }
   // {
   //   path: '', redirectTo: 'homes', pathMatch: 'full'

@@ -35,6 +35,7 @@ import { HomeManagerHostComponent } from './component/homes/home-manager-host/ho
 import { HomeDeleteComponent } from './component/homes/home-delete/home-delete.component';
 import { CommentComponent } from './component/Comment_Component/comment/comment.component';
 import { CommentCreateComponent } from './component/Comment_Component/comment-create/comment-create.component';
+import { ProfileComponent } from './user/component/profile/profile.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -62,6 +63,7 @@ import { CommentCreateComponent } from './component/Comment_Component/comment-cr
     HomeDeleteComponent,
     CommentComponent,
     CommentCreateComponent,
+    ProfileComponent,
 
   ],
   imports: [
