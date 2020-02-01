@@ -34,7 +34,8 @@
         </div>
       </div>
       <div class="col-md-2">
-        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+        <app-profile-edit [user] = user (valueChange)="receiveUser($event)"
+        ></app-profile-edit>
       </div>
     </div>
     <div class="row">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../service/user.service';
+import {BookingReponse} from '../../../model/home/BookingReponse';
+import {User} from '../../../model/user/user';
 
 @Component({
   selector: 'app-profile',
@@ -29,5 +31,9 @@ export class ProfileComponent implements OnInit {
   }
   getRole() {
     this.role  = this.userService.getRole();
+  }
+
+  receiveUser(user: User) {
+    this.user = user;
   }
 }

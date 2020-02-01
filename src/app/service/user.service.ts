@@ -6,6 +6,7 @@ import {environment} from '../../environments/environment';
 import {Role} from '../model/user/role';
 import {Password} from '../model/user/password';
 import {Home} from '../model/home/Home';
+import {UserForm} from '../user/component/profile-edit/UserForm';
 
 
 const API_URL = `${environment.apiUrl}`;
@@ -49,8 +50,11 @@ export class UserService {
   changePassword(password: Password): Observable<Password> {
     return this.http.post<Password>(API_URL + '/users/change-password', password);
   }
-  getUser(id: string): Observable<User> {
+  getUser(id: any): Observable<User> {
     return this.http.get<User>(API_URL + '/users/' + id);
+  }
+  updateUser(infor: UserForm): Observable<string> {
+    return this.http.put<string>(API_URL + '/users/' + infor.id , infor);
   }
 }
 

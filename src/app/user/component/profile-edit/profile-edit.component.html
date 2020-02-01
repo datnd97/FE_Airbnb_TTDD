@@ -1,0 +1,37 @@
+<!--<input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>-->
+<!-- Button trigger modal -->
+<button type="button" class="profile-edit-btn" name="btnAddMore" data-toggle="modal" data-target="#exampleModalLong">
+  Edit Profile
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="inputName">
+          <div class="form-group">
+            <label  class="col-form-label"><u>New Name</u> </label>
+            <input type="text" placeholder="{{user.name}}" formControlName="name" class="form-control" >
+          </div>
+          <div class="alert alert-warning" role="alert" *ngIf="inputName.get('name').invalid &&inputName.get('name').touched">
+            Invalid(must longer 3 character)
+          </div>
+          <div class="alert alert-warning" role="alert" *ngIf="isErrorUser">
+            {{errorUser}}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button  #closeModalRef type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updateUser(closeModalRef)">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

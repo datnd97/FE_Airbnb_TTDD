@@ -36,6 +36,7 @@ import { HomeDeleteComponent } from './component/homes/home-delete/home-delete.c
 import { CommentComponent } from './component/Comment_Component/comment/comment.component';
 import { CommentCreateComponent } from './component/Comment_Component/comment-create/comment-create.component';
 import { ProfileComponent } from './user/component/profile/profile.component';
+import { ProfileEditComponent } from './user/component/profile-edit/profile-edit.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -64,6 +65,7 @@ import { ProfileComponent } from './user/component/profile/profile.component';
     CommentComponent,
     CommentCreateComponent,
     ProfileComponent,
+    ProfileEditComponent,
 
   ],
   imports: [
