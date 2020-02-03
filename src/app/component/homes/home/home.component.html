@@ -8,7 +8,7 @@
         <div  *ngFor="let home of listHome| filter:searchText | paginate:{itemsPerPage: count, currentPage: p}  "   class="col-md-6 col-lg-4 pb-3">
 
           <!-- Copy the content below until next comment -->
-          <div *ngIf="!home.isBooking">
+<!--          <div *ngIf="!home.isBooking">-->
           <div   class="card card-custom bg-white border-white border-0">
             <div class="card-custom-img" style=";"></div>
             <div class="card-custom-avatar">
@@ -35,7 +35,7 @@
     <pagination-controls (pageChange)="p=$event"></pagination-controls>
 
   </div>
-</div>
+<!--</div>-->
 
 
 <!--<app-home-detail [home]="selectedHome"></app-home-detail>-->

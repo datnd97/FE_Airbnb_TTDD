@@ -26,7 +26,7 @@
       <th>{{bookingItem.guest}}</th>
       <th>{{bookingItem.children}}</th>
       <th>{{bookingItem.timeNow|date: 'EEEE, d-M-yyyy, h:mm a'}}</th>
-      <th>{{bookingItem.user.name}}</th>
+      <th>{{bookingItem.user.username}}</th>
       <th>
       <app-booking-cancel [bookingId]="bookingItem.id"
       (valueChange)="receiveBooking($event)"

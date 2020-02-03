@@ -42,6 +42,7 @@ export class CommentCreateComponent implements OnInit {
     }
     console.log(this.id);
     const comment: Comment = {
+      id: this.id,
       content: commentInput,
       user: {
         id: this.roleId
