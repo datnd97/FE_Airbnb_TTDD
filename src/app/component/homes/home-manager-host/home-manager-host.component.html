@@ -31,8 +31,10 @@
     <th>{{home.status}}</th>
     <th>{{home.isBooking}}</th>
     <th>
-      <a routerLink="/edit/{{home.id}}" >Edit</a>|
-
+      <a class="btn btn-primary" routerLink="/edit/{{home.id}}" >Edit</a>
+      &nbsp;
+      <a class="btn btn-info" routerLink="/homes/{{home.id}}">Detail</a>
+      &nbsp;
       <app-home-delete [home]="home"
                        (valueChange)="receive($event)"></app-home-delete>
     </th>
