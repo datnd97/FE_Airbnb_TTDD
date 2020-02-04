@@ -1,0 +1,34 @@
+<br>
+<div class="container">
+  <h1>List Checkin:</h1>
+  <table *ngIf="checkInList" class="table table-hover">
+  <thead>
+  <tr class="table-bordered table-primary"
+      style="text-align: center; font-weight: 900 ; color: red ; font-size: 20px">
+    <th scope="col">#ID</th>
+    <th scope="col">Tên Nhà</th>
+    <th scope="col">Address</th>
+    <th scope="col">Trạng thái</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr  class="table-bordered" style="text-align: center"
+       *ngFor="let home of checkInList">
+    <th scope="row">{{home.id}}</th>
+    <th>{{home.name}}</th>
+    <th>{{home.address}}</th>
+
+    <th *ngIf="home.isCheckin == true">
+      Đã Nhận
+    </th>
+    <th *ngIf="!home.isCheckin">
+     Chưa nhận
+    </th>
+  </tr>
+
+
+  </tbody>
+</table>
+</div>

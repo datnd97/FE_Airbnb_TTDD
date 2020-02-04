@@ -1,4 +1,7 @@
 <!--<div *ngIf="home;else elseBlock">-->
+<br>
+<div class="container">
+  <h1>List Booking:</h1>
 <table *ngIf="bookingList" class="table table-hover">
   <thead>
   <tr class="table-bordered table-primary"
@@ -31,6 +34,7 @@
       <app-booking-cancel [bookingId]="bookingItem.id"
       (valueChange)="receiveBooking($event)"
       ></app-booking-cancel>
+        <app-home-checkin [homeId]="bookingItem.home.id"></app-home-checkin>
       </th>
 
 
@@ -39,5 +43,9 @@
 
   </tbody>
 </table>
+<div *ngIf="!bookingList">
+  <p  class="container">#No data history Booking</p>
+</div>
+</div>
 <!--</div>-->
 <!--<ng-template #elseBlock>Không tìm thấy dữ liệu.</ng-template>-->

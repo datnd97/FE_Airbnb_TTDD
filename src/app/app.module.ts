@@ -37,6 +37,10 @@ import { CommentComponent } from './component/Comment_Component/comment/comment.
 import { CommentCreateComponent } from './component/Comment_Component/comment-create/comment-create.component';
 import { ProfileComponent } from './user/component/profile/profile.component';
 import { ProfileEditComponent } from './user/component/profile-edit/profile-edit.component';
+import { HomeCheckinComponent } from './component/Checkin_Home/home-checkin/home-checkin.component';
+import { HomeCheckinListComponent } from './component/Checkin_Home/home-checkin-list/home-checkin-list.component';
+import { BookingDeleteByHostComponent } from './component/Booking_Component/booking-delete-by-host/booking-delete-by-host.component';
+import { UserChangePasswordComponent } from './user/component/user-change-password/user-change-password.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -66,6 +70,10 @@ import { ProfileEditComponent } from './user/component/profile-edit/profile-edit
     CommentCreateComponent,
     ProfileComponent,
     ProfileEditComponent,
+    HomeCheckinComponent,
+    HomeCheckinListComponent,
+    BookingDeleteByHostComponent,
+    UserChangePasswordComponent,
 
   ],
   imports: [

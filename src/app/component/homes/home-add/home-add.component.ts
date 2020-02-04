@@ -91,8 +91,9 @@ export class HomeAddComponent implements OnInit {
       price,
       description,
       status: false,
-      isBooking: false, user: null,
-
+      isBooking: false,
+      user: null,
+      isCheckin: false
     };
     console.log(home);
     this.homeService.addHome(home).subscribe(

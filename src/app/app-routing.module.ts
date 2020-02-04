@@ -15,6 +15,9 @@ import {HomeUploadComponent} from './component/homes/home-upload/home-upload.com
 import {HomeManagerHostComponent} from './component/homes/home-manager-host/home-manager-host.component';
 import {CommentComponent} from './component/Comment_Component/comment/comment.component';
 import {ProfileComponent} from './user/component/profile/profile.component';
+import {HomeCheckinComponent} from './component/Checkin_Home/home-checkin/home-checkin.component';
+import {HomeCheckinListComponent} from './component/Checkin_Home/home-checkin-list/home-checkin-list.component';
+import {UserChangePasswordComponent} from './user/component/user-change-password/user-change-password.component';
 
 
 const routes: Routes = [
@@ -59,6 +62,15 @@ const routes: Routes = [
   },
   {
     path: 'profile', component: ProfileComponent
+  },
+  {
+    path: 'home-checkin', component: HomeCheckinComponent
+  },
+  {
+    path: 'home-checkin-list', component: HomeCheckinListComponent
+  },
+  {
+    path: 'change-password', component: UserChangePasswordComponent
   }
   // {
   //   path: '', redirectTo: 'homes', pathMatch: 'full'

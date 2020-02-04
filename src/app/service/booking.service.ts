@@ -22,10 +22,10 @@ export class BookingService {
     return this.http.get<BookingReponse>(this.userBookingUrl + 'list-booking-user');
   }
   getListBookingByHost(): Observable<BookingReponse> {
-    const headers = new HttpHeaders({
-      Authorization: 'Bearer ' + sessionStorage.getItem('token')
-    });
-    return this.http.get<BookingReponse>(this.hostBookingUrl + 'list-booking-host', {headers});
+    // const headers = new HttpHeaders({
+    //   Authorization: 'Bearer ' + sessionStorage.getItem('token')
+    // });
+    return this.http.get<BookingReponse>(this.hostBookingUrl + 'list-booking-host');
   }
   getBooking(id: number): Observable<Booking> {
     return this.http.get<Booking>(this.hostBookingUrl + id);

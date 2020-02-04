@@ -10,8 +10,4 @@ import {Image} from '../model/home/Image';
   providedIn: 'root'
 })
 export class UploadService {
-
-
-
-
 }

@@ -35,6 +35,9 @@
         <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_USER'">
           <a class="nav-link" routerLink="/booking-user-list">User Booking</a>
         </li>
+        <li class="nav-item" *ngIf="userService.getRole() == 'ROLE_USER'">
+          <a class="nav-link" routerLink="/home-checkin-list">User Checkin</a>
+        </li>
         <li class="nav-item" *ngIf="userService.getRole() !== 'ROLE_ADMIN'">
           <a class="nav-link" href="#">Contact</a>
         </li>
@@ -55,6 +58,7 @@
             <div class="dropdown-menu">
               <a class="dropdown-item" (click)="logout()">Logout</a>
               <a class="dropdown-item" routerLink="/profile">Profile</a>
+              <a class="dropdown-item" routerLink="/change-password">Change password</a>
 
             </div>
           </div>
