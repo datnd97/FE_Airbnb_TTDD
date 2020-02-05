@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Password} from '../../../model/user/password';
 import {Home} from '../../../model/home/Home';
 import {MustMatch} from './must-match.validator';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-user-change-password',
@@ -14,11 +15,12 @@ export class UserChangePasswordComponent implements OnInit {
   checkoutForm: FormGroup;
   username: string;
   submitted = false;
-  errorMessage;
-  successMessage;
+  errorMessage: string;
+  successMessage: string;
 
   constructor(private userService: UserService,
-              private fb: FormBuilder) {
+              private fb: FormBuilder,
+              private location: Location) {
     this.username = sessionStorage.getItem('username');
   }
 
@@ -40,6 +42,8 @@ export class UserChangePasswordComponent implements OnInit {
 
   onSubmit(passwordData) {
     this.submitted = true;
+    this.successMessage = undefined;
+    this.errorMessage = undefined;
     if (this.checkoutForm.invalid) {
       return;
     }
@@ -56,11 +60,14 @@ export class UserChangePasswordComponent implements OnInit {
         this.successMessage = result.message;
         this.checkoutForm.reset();
       }, error => {
-        this.errorMessage = error.error.message;
-        console.log(this.errorMessage);
+        console.log(error);
+        this.errorMessage = error;
       }
     );
   }
+  // goBack() {
+  //   this.location.back();
+  // }
 }
 
 function passwordMatchValidator(group: FormGroup): any {

@@ -28,7 +28,7 @@
     <th *ngIf="bookingItem!=null">{{bookingItem.guest}}</th>
     <th *ngIf="bookingItem!=null">{{bookingItem.children}}</th>
     <th *ngIf="bookingItem!=null">{{bookingItem.timeNow}}</th>
-    <th *ngIf="bookingItem!=null">{{bookingItem.user.name}}</th>
+    <th *ngIf="bookingItem!=null">{{bookingItem.user.username}}</th>
     <th *ngIf="!bookingItem.cancelled">
         Still Booking
     </th>

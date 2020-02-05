@@ -5,19 +5,20 @@
     </div>
     <div  class="container">
       <div class="row pt-5 m-auto">
-        <div  *ngFor="let home of listHome| filter:searchText | paginate:{itemsPerPage: count, currentPage: p}  "   class="col-md-6 col-lg-4 pb-3">
-
-          <!-- Copy the content below until next comment -->
-<!--          <div *ngIf="!home.isBooking">-->
+        <div  *ngFor="let home of listHome| filter: searchText | paginate:{itemsPerPage: count, currentPage: p}"   class="col-md-6 col-lg-4 pb-3">
           <div   class="card card-custom bg-white border-white border-0">
             <div class="card-custom-img" style=";"></div>
             <div class="card-custom-avatar">
               <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
             </div>
             <div  class="card-body" style="overflow-y: auto">
-              <h4 class="card-title">{{home.name}}</h4>
-              <h4 class="card-title">{{home.price}}</h4>
-              <p class="card-text">  {{home.description}} <a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">Books</a> ngay nếu bạn thích.</p>
+              <h4  class="card-title">{{home.name}}</h4>
+              <h4 class="card-text">
+                Price: {{home.price}}$/1 night</h4>
+              <p class="card-text">
+                Information: {{home.description}}
+              </p>
+              <div><a href="https://getbootstrap.com/docs/4.0/components/card/#card-decks" target="_blank">Books</a> ngay nếu bạn thích.</div>
             </div>
             <div class="card-footer" style="background: inherit; border-color: inherit;">
               <a routerLink="/homes/{{home.id}}" class="btn btn-primary">Option</a>
