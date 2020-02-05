@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../service/user.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Password} from '../../../model/user/password';
 import {Home} from '../../../model/home/Home';
+import {MustMatch} from './must-match.validator';
 
 @Component({
   selector: 'app-user-change-password',
@@ -12,6 +13,7 @@ import {Home} from '../../../model/home/Home';
 export class UserChangePasswordComponent implements OnInit {
   checkoutForm: FormGroup;
   username: string;
+  submitted = false;
   constructor(private userService: UserService,
               private fb: FormBuilder) {
     this.username = sessionStorage.getItem('name');
@@ -20,11 +22,20 @@ export class UserChangePasswordComponent implements OnInit {
   ngOnInit() {
     this.checkoutForm = this.fb.group({
       currentPassword: '',
-      newPassword: '',
-      confirmNewPassword: '',
-    });
+      newPassword: ['', [Validators.required, Validators.minLength(6)]],
+      confirmNewPassword: ['', Validators.required],
+    },
+      {
+        validator: MustMatch('newPassword', 'confirmNewPassword')
+      });
   }
+  get f() { return this.checkoutForm.controls; }
+
   onSubmit(passwordData) {
+    this.submitted = true;
+    if (this.checkoutForm.invalid) {
+      return;
+    }
     const {currentPassword, newPassword, confirmNewPassword} = this.checkoutForm.value;
     const password: Password = {
       username: this.username,
