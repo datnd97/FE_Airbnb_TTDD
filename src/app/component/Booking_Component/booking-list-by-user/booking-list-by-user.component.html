@@ -15,7 +15,6 @@
     <th scope="col">Thời gian đặt</th>
     <th scope="col">Nguoi dùng</th>
     <th scope="col">Trạng thái</th>
-
   </tr>
   </thead>
   <tbody>
@@ -30,7 +29,7 @@
       <th>{{bookingItem.children}}</th>
       <th>{{bookingItem.timeNow|date: 'EEEE, d-M-yyyy, h:mm a'}}</th>
       <th>{{bookingItem.user.username}}</th>
-      <th>
+      <th *ngIf="bookingItem.id != null">
       <app-booking-cancel [bookingId]="bookingItem.id"
       (valueChange)="receiveBooking($event)"
       ></app-booking-cancel>
@@ -39,7 +38,6 @@
 
 
     </tr>
-
 
   </tbody>
 </table>

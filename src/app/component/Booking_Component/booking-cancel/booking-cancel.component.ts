@@ -34,8 +34,7 @@ export class BookingCancelComponent implements OnInit {
           this.onGetListBooking();
           // tslint:disable-next-line:no-shadowed-variable
         }, error => {
-          this.errorMgs = error.error.message;
-          alert(this.errorMgs);
+          alert(error);
         }
       );
     }
