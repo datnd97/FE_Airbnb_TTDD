@@ -47,8 +47,8 @@ export class UserService {
     return this.http.get<Role[]>(API_URL + '/users/roles');
   }
 
-  changePassword(password: Password): Observable<Password> {
-    return this.http.post<Password>(API_URL + '/users/change-password', password);
+  changePassword(password: Password): Observable<any> {
+    return this.http.post<any>(API_URL + '/users/change-password', password);
   }
   getUser(id: any): Observable<User> {
     return this.http.get<User>(API_URL + '/users/' + id);

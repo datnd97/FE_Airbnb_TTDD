@@ -1,5 +1,5 @@
 export interface Password {
- username: string;
+   username: string;
   currentPassword: string;
   newPassword: string;
   confirmNewPassword: string;
